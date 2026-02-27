@@ -1,0 +1,118 @@
+version: "0.2"
+solution_key: bopis
+display_name: Buy Online, Pick Up In Store
+description: Enable customers to purchase online and pick up in store with inventory visibility and fulfillment optimization
+owners:
+  solution_architect: Zhong
+  product_owner: Nestor
+enterprise_id: ""
+entrypoints:
+  solution_md: SOLUTION.md
+  agents_md: AGENTS.md
+  cascade_state: .openarchitect/cascade-state.yml
+domains:
+  - domain_key: ecommerce
+    oda_component: Product Catalog Management
+    domain_repo:
+      repo_url: ""
+      entrypoints:
+        domain_md: DOMAIN.md
+        agents_md: AGENTS.md
+        cascade_state: .openarchitect/cascade-state.yml
+    tmf_apis:
+      - api_id: TMF620
+        implementation_repo_url: ""
+  - domain_key: inventory
+    oda_component: Product Inventory Management
+    domain_repo:
+      repo_url: ""
+      entrypoints:
+        domain_md: DOMAIN.md
+        agents_md: AGENTS.md
+        cascade_state: .openarchitect/cascade-state.yml
+    tmf_apis:
+      - api_id: TMF637
+        implementation_repo_url: ""
+  - domain_key: order
+    oda_component: Order Management
+    domain_repo:
+      repo_url: ""
+      entrypoints:
+        domain_md: DOMAIN.md
+        agents_md: AGENTS.md
+        cascade_state: .openarchitect/cascade-state.yml
+    tmf_apis:
+      - api_id: TMF620
+        implementation_repo_url: ""
+  - domain_key: party-role
+    oda_component: Party Role Management
+    domain_repo:
+      repo_url: ""
+      entrypoints:
+        domain_md: DOMAIN.md
+        agents_md: AGENTS.md
+        cascade_state: .openarchitect/cascade-state.yml
+    tmf_apis:
+      - api_id: TMF629
+        implementation_repo_url: ""
+  - domain_key: notification
+    oda_component: Notification Service
+    domain_repo:
+      repo_url: ""
+      entrypoints:
+        domain_md: DOMAIN.md
+        agents_md: AGENTS.md
+        cascade_state: .openarchitect/cascade-state.yml
+    tmf_apis:
+      - api_id: ""
+        implementation_repo_url: ""
+  - domain_key: inventory
+    oda_component: Product Inventory Management
+    domain_repo:
+      repo_url: ""
+      entrypoints:
+        domain_md: DOMAIN.md
+        agents_md: AGENTS.md
+        cascade_state: .openarchitect/cascade-state.yml
+    tmf_apis:
+      - api_id: TMF637
+        implementation_repo_url: ""
+  - domain_key: order
+    oda_component: Order Management
+    domain_repo:
+      repo_url: ""
+      entrypoints:
+        domain_md: DOMAIN.md
+        agents_md: AGENTS.md
+        cascade_state: .openarchitect/cascade-state.yml
+    tmf_apis:
+      - api_id: TMF620
+        implementation_repo_url: ""
+  - domain_key: fulfillment
+    oda_component: Party Role Management
+    domain_repo:
+      repo_url: ""
+      entrypoints:
+        domain_md: DOMAIN.md
+        agents_md: AGENTS.md
+        cascade_state: .openarchitect/cascade-state.yml
+    tmf_apis:
+      - api_id: TMF629
+        implementation_repo_url: ""
+  - domain_key: notification
+    oda_component: Notification Service
+    domain_repo:
+      repo_url: ""
+      entrypoints:
+        domain_md: DOMAIN.md
+        agents_md: AGENTS.md
+        cascade_state: .openarchitect/cascade-state.yml
+repos:
+  - repo_key: solution_design
+    repo_url: ""
+    purpose: design
+    description: Solution architecture design repo for BOPIS initiative
+    entrypoints:
+      solution_md: SOLUTION.md
+      agents_md: AGENTS.md
+      cascade_state: .openarchitect/cascade-state.yml

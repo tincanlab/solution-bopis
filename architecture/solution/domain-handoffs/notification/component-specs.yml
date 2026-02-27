@@ -1,0 +1,103 @@
+version: "0.1"
+domain_id: "notification"
+domain_name: "Notification Domain"
+description: "Notification domain manages customer notifications for order readiness and pickup instructions via email and SMS.
+
+owner:
+  name: "Zhong"
+  role: "Technical Lead"
+  team: "Engineering"
+
+components:
+  - id: "comp-notification-service"
+    name: "Notification Service"
+    description: "Sends email and SMS notifications to customers for order readiness, pickup instructions, and order status updates. Integrates with external email and SMS providers."
+    type: "stateless"
+    external_dependencies:
+      - name: "Email Provider"
+        purpose: "Email delivery"
+        protocol: "SMTP/API"
+        availability_sla: "99.0%"
+      - name: "SMS Provider"
+        purpose: "SMS delivery"
+        protocol: "REST"
+        availability_sla: "99.0%"
+    provided_interfaces:
+      - "ifc-notification-api"
+    consumed_interfaces:
+      - "ifc-order-status-event"
+    dependencies:
+      - interface_id: "ifc-order-status-event"
+        owner_domain: "order"
+        required_before: "phase-1"
+    nfr_slo:
+      availability: "99.5%"
+      latency_p95_ms: 500
+      throughput_rps: 200
+      error_budget: "1.0%"
+    data_entities:
+      - "Notification"
+    observability:
+      metrics:
+        - "notification_delivery_rate"
+        - "email_delivery_latency"
+        - "sms_delivery_latency"
+        - "notification_failure_rate"
+      logs:
+        - "Notification send logs"
+        - "Delivery status logs"
+        - "Template usage logs"
+      traces:
+        - "Notification send traces"
+        - "Provider API traces"
+    deployment:
+      replicas: 2
+      resource_limits:
+        cpu: "1 vCPU"
+        memory: "2Gi"
+        storage: "5Gi"
+      environment: "production"
+    security:
+      authentication: "mTLS"
+      authorization: "Service-to-service"
+      data_encryption: "TLS 1.3 in transit, AES-256 at rest"
+      compliance: "GDPR, CCPA"
+    scaling:
+      min_replicas: 2
+      max_replicas: 6
+      auto_scaling_trigger: "CPU > 70% for 5 minutes"
+
+integration_patterns:
+  - pattern: "async_event"
+    source: "order"
+    target: "notification"
+    interface: "ifc-order-status-event"
+    resiliency:
+      retries: 3
+      backoff: "exponential"
+      dead_letter_queue: true
+    data_contract:
+      version: "0.1.0"
+      backward_compatible: true
+
+external_integrations:
+  - system: "Email Provider"
+    purpose: "Email notification delivery"
+    protocol: "SMTP/API"
+    auth: "API_KEY"
+    rate_limit: "200 rps"
+    timeout: "10000ms"
+    circuit_breaker: true
+    notes: "External email provider for order notifications"
+  - system: "SMS Provider"
+    purpose: "SMS notification delivery"
+    protocol: "REST"
+    auth: "API_KEY"
+    rate_limit: "100 rps"
+    timeout: "5000ms"
+    circuit_breaker: true
+    notes: "External SMS provider for order notifications"
+
+open_questions: []
+
+notes: "Notification domain is customer-facing and requires reliable delivery within 2 minutes of order readiness. Event-driven integration with Order domain ensures timely notifications."

@@ -1,0 +1,35 @@
+version: "0.1"
+cascade_state:
+  requirements:
+    status: "ready_for_advancement_review"
+    advanced_at: ""
+    advanced_by: ""
+    evidence_artifacts:
+      - "architecture/requirements/requirements.yml"
+      - "architecture/requirements/requirements_report.md"
+      - "architecture/requirements/stakeholders.yml"
+  solution_architecture:
+    status: "draft"
+    advanced_at: ""
+    advanced_by: ""
+    evidence_artifacts:
+      - "architecture/solution/architecture-design.yml"
+      - "architecture/solution/interface-contracts.yml"
+      - "architecture/solution/domain-handoffs/ecommerce/component-specs.yml"
+      - "architecture/solution/domain-handoffs/inventory/component-specs.yml"
+      - "architecture/solution/domain-handoffs/order/component-specs.yml"
+      - "architecture/solution/domain-handoffs/fulfillment/component-specs.yml"
+      - "architecture/solution/domain-handoffs/notification/component-specs.yml"
+  domain_architecture:
+    status: "not_started"
+    advanced_at: ""
+    advanced_by: ""
+    evidence_artifacts: []
+  implementation:
+    status: "not_started"
+    advanced_at: ""
+    advanced_by: ""
+    evidence_artifacts: []
+
+last_updated: "2025-02-27T00:00:00Z"
+updated_by: "system"
