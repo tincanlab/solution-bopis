@@ -1,0 +1,339 @@
+version: "0.1"
+initiative_id: "init-bopis"
+initiative_name: "Buy Online, Pick Up In Store"
+
+stakeholders:
+  - id: "stakeholder-001"
+    name: "Zhong"
+    role: "Solution Architect"
+    type: "technical"
+    organization: "IT"
+    responsibilities:
+      - "System architecture design"
+      - "Component decomposition"
+      - "Interface contracts definition"
+      - "NFR budget allocation"
+    concerns:
+      - "Architecture patterns alignment with existing systems"
+      - "Technical feasibility of integrations"
+      - "Scalability and resiliency requirements"
+    decision_rights:
+      - "Approve architecture patterns"
+      - "Approve interface contracts"
+      - "Approve technology stack choices"
+    engagement:
+      - "Lead solution architecture design"
+      - "Review and approve technical designs"
+      - "Coordinate with domain teams"
+    status: "active"
+    notes: "Primary technical decision maker for BOPIS initiative"
+
+  - id: "stakeholder-002"
+    name: "Nestor"
+    role: "Product Owner"
+    type: "business"
+    organization: "Product"
+    responsibilities:
+      - "Define product requirements and user stories"
+      - "Prioritize features and phases"
+      - "Define acceptance criteria"
+      - "Manage product roadmap"
+    concerns:
+      - "Customer experience and satisfaction"
+      - "Time-to-market for BOPIS capability"
+      - "Business value and ROI"
+    decision_rights:
+      - "Prioritize requirements and features"
+      - "Approve phase deliverables"
+      - "Define go/no-go criteria"
+    engagement:
+      - "Define product requirements"
+      - "Review and approve user stories"
+      - "Manage product backlog"
+    status: "active"
+    notes: "Primary product decision maker for BOPIS initiative"
+
+  - id: "stakeholder-003"
+    name: "VP Retail"
+    role: "Business Sponsor"
+    type: "business"
+    organization: "Retail Operations"
+    responsibilities:
+      - "Provide business sponsorship and funding"
+      - "Define business objectives and KPIs"
+      - "Ensure store operations alignment"
+    concerns:
+      - "Operational impact on stores"
+      - "Training and adoption by store associates"
+      - "ROI and business outcomes"
+    decision_rights:
+      - "Approve initiative funding and scope"
+      - "Define success metrics and KPIs"
+      - "Make go/no-go decisions"
+    engagement:
+      - "Provide executive sponsorship"
+      - "Approve business case and budget"
+      - "Ensure cross-functional alignment"
+    status: "active"
+    notes: "Executive sponsor for BOPIS initiative"
+
+  - id: "stakeholder-004"
+    name: "E-commerce Team"
+    role: "Integration Partner"
+    type: "technical"
+    organization: "IT"
+    responsibilities:
+      - "Provide HCL Commerce API access and documentation"
+      - "Support BOPIS integration development"
+      - "Review and approve HCL Commerce integration design"
+    concerns:
+      - "Impact on existing e-commerce platform"
+      - "API performance and rate limits"
+      - "Data consistency with existing systems"
+    decision_rights:
+      - "Approve HCL Commerce integration approach"
+      - "Define API access and rate limits"
+      - "Review and approve HCL Commerce changes"
+    engagement:
+      - "Provide API documentation and test environment"
+      - "Review and approve integration design"
+      - "Support integration development and testing"
+    status: "active"
+    notes: "Critical dependency for BOPIS success"
+
+  - id: "stakeholder-005"
+    name: "Retail Operations Team"
+    role: "Operations Partner"
+    type: "business"
+    organization: "Retail Operations"
+    responsibilities:
+      - "Provide POS system integration specifications"
+      - "Define store operational processes for BOPIS"
+      - "Coordinate store associate training"
+      - "Define phase rollout strategy"
+    concerns:
+      - "Impact on existing store operations"
+      - "Store associate adoption and training"
+      - "Operational efficiency and customer experience"
+    decision_rights:
+      - "Approve store operational processes"
+      - "Define phase rollout strategy"
+      - "Approve store associate training approach"
+    engagement:
+      - "Provide POS system specifications"
+      - "Define store processes and workflows"
+      - "Coordinate store rollout and training"
+    status: "active"
+    notes: "Critical for store operations and associate adoption"
+
+  - id: "stakeholder-006"
+    name: "Supply Chain Team"
+    role: "Integration Partner"
+    type: "technical"
+    organization: "Supply Chain"
+    responsibilities:
+      - "Provide inventory management system API access"
+      - "Define inventory synchronization requirements"
+      - "Review and approve inventory integration design"
+    concerns:
+      - "Inventory accuracy across channels"
+      - "Real-time synchronization performance"
+      - "Impact on existing inventory processes"
+    decision_rights:
+      - "Approve inventory synchronization approach"
+      - "Define inventory API access policies"
+      - "Review and approve inventory system changes"
+    engagement:
+      - "Provide inventory system API documentation"
+      - "Define synchronization requirements"
+      - "Support integration development and testing"
+    status: "active"
+    notes: "Critical for inventory accuracy and real-time visibility"
+
+  - id: "stakeholder-007"
+    name: "Legal and Security Team"
+    role: "Compliance Reviewer"
+    type: "governance"
+    organization: "Legal & Security"
+    responsibilities:
+      - "Review PCI DSS compliance approach"
+      - "Review GDPR and CCPA compliance approach"
+      - "Approve data retention and privacy policies"
+      - "Conduct security and privacy reviews"
+    concerns:
+      - "Compliance with PCI DSS, GDPR, and CCPA"
+      - "Data privacy and security"
+      - "Liability and risk management"
+    decision_rights:
+      - "Approve compliance approach"
+      - "Define data retention policies"
+      - "Make go/no-go compliance decisions"
+    engagement:
+      - "Review compliance requirements"
+      - "Approve security and privacy designs"
+      - "Conduct compliance audits"
+    status: "active"
+    notes: "Critical for compliance and risk management"
+
+  - id: "stakeholder-008"
+    name: "Infrastructure Team"
+    role: "Infrastructure Provider"
+    type: "technical"
+    organization: "IT Infrastructure"
+    responsibilities:
+      - "Provide cloud infrastructure and networking"
+      - "Ensure store network connectivity"
+      - "Define disaster recovery and backup strategy"
+      - "Provide observability and monitoring tools"
+    concerns:
+      - "Infrastructure scalability and performance"
+      - "Store network reliability"
+      - "Disaster recovery and business continuity"
+    decision_rights:
+      - "Approve infrastructure architecture"
+      - "Define infrastructure standards and policies"
+      - "Approve disaster recovery strategy"
+    engagement:
+      - "Provide infrastructure platform and tools"
+      - "Review and approve infrastructure design"
+      - "Support deployment and operations"
+    status: "active"
+    notes: "Critical for system availability and reliability"
+
+  - id: "stakeholder-009"
+    name: "PM Team Retail"
+    role: "Project Manager"
+    type: "management"
+    organization: "Program Management"
+    responsibilities:
+      - "Coordinate cross-functional execution"
+      - "Manage project timeline and dependencies"
+      - "Track progress and report status"
+      - "Manage risks and issues"
+    concerns:
+      - "On-time delivery of phases"
+      - "Cross-functional coordination"
+      - "Resource allocation and capacity"
+    decision_rights:
+      - "Approve project timeline and milestones"
+      - "Prioritize cross-functional work"
+      - "Escalate risks and issues"
+    engagement:
+      - "Lead project management"
+      - "Coordinate cross-functional teams"
+      - "Track and report progress"
+    status: "active"
+    notes: "Project manager for BOPIS initiative"
+
+open_questions:
+  - id: "stakeholder-q-001"
+    question: "Which specific stores will be included in Phase 1 rollout?"
+    status: "answered"
+    answer: "Phase 1 includes 20-25 stores selected based on geographic distribution, store size, and technical readiness."
+    stakeholder_id: "stakeholder-005"
+    notes: "Retail Operations team to provide final store list"
+
+  - id: "stakeholder-q-002"
+    question: "What are the specific HCL Commerce API endpoints available for BOPIS integration?"
+    status: "open"
+    answer: ""
+    stakeholder_id: "stakeholder-004"
+    notes: "E-commerce team to provide API documentation"
+
+  - id: "stakeholder-q-003"
+    question: "What is the existing inventory management system and its API capabilities?"
+    status: "open"
+    answer: ""
+    stakeholder_id: "stakeholder-006"
+    notes: "Supply Chain team to provide system documentation"
+
+  - id: "stakeholder-q-004"
+    question: "What is the exact POS system model and integration specifications?"
+    status: "open"
+    answer: ""
+    stakeholder_id: "stakeholder-005"
+    notes: "Retail Operations team to provide system documentation"
+
+  - id: "stakeholder-q-005"
+    question: "What email/SMS provider will be used for customer notifications?"
+    status: "open"
+    answer: ""
+    stakeholder_id: "stakeholder-008"
+    notes: "Infrastructure/Procurement to select provider"
+
+  - id: "stakeholder-q-006"
+    question: "What are the specific store associate hardware requirements (tablet models, OS)?"
+    status: "open"
+    answer: ""
+    stakeholder_id: "stakeholder-005"
+    notes: "Retail Operations and Infrastructure to define requirements"
+
+  - id: "stakeholder-q-007"
+    question: "What are the specific data retention requirements beyond 7 years for different data types?"
+    status: "open"
+    answer: ""
+    stakeholder_id: "stakeholder-007"
+    notes: "Legal team to provide retention policies"
+
+  - id: "stakeholder-q-008"
+    question: "What is the disaster recovery target for BOPIS-specific services?"
+    status: "open"
+    answer: ""
+    stakeholder_id: "stakeholder-008"
+    notes: "Infrastructure team to define DR targets"
+
+governance:
+  decision_gates:
+    - gate: "Requirements Baseline Approval"
+      status: "proposed"
+      approvers:
+        - "stakeholder-001"
+        - "stakeholder-002"
+      due_date: "2025-03-15"
+      notes: "Product Owner and Solution Architect must approve requirements before proceeding to solution architecture"
+
+    - gate: "Architecture Design Review"
+      status: "pending"
+      approvers:
+        - "stakeholder-001"
+        - "stakeholder-004"
+        - "stakeholder-006"
+      due_date: "2025-04-15"
+      notes: "Solution Architect, E-commerce Team, and Supply Chain Team must approve architecture design"
+
+    - gate: "Phase 1 Go-Live Decision"
+      status: "pending"
+      approvers:
+        - "stakeholder-003"
+        - "stakeholder-002"
+        - "stakeholder-009"
+      due_date: "2025-06-30"
+      notes: "Business Sponsor, Product Owner, and Project Manager must approve Phase 1 go-live"
+
+    - gate: "Compliance Review"
+      status: "pending"
+      approvers:
+        - "stakeholder-007"
+      due_date: "2025-04-01"
+      notes: "Legal and Security Team must approve compliance approach"
+
+  escalation_path:
+    - level: "Technical Issues"
+      primary_contact: "stakeholder-001"
+      secondary_contact: "stakeholder-009"
+      notes: "Solution Architect first, then Project Manager"
+
+    - level: "Business/Operational Issues"
+      primary_contact: "stakeholder-002"
+      secondary_contact: "stakeholder-003"
+      notes: "Product Owner first, then Business Sponsor"
+
+    - level: "Compliance/Legal Issues"
+      primary_contact: "stakeholder-007"
+      secondary_contact: "stakeholder-003"
+      notes: "Legal Team first, then Business Sponsor"
+
+    - level: "Infrastructure Issues"
+      primary_contact: "stakeholder-008"
+      secondary_contact: "stakeholder-001"
+      notes: "Infrastructure Team first, then Solution Architect"

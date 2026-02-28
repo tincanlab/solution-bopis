@@ -6,6 +6,7 @@ cascade_state:
     advanced_by: ""
     evidence_artifacts:
       - "architecture/requirements/requirements.yml"
+      - "architecture/requirements/requirements.md"
       - "architecture/requirements/requirements_report.md"
       - "architecture/requirements/stakeholders.yml"
   solution_architecture:
@@ -31,5 +32,5 @@ cascade_state:
     advanced_by: ""
     evidence_artifacts: []
 
-last_updated: "2025-02-27T00:00:00Z"
-updated_by: "system"
+last_updated: "2025-02-28T00:00:00Z"
+updated_by: "requirement-analysis-skill"
