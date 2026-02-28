@@ -20,7 +20,14 @@ engagements:
       priority: high
       milestone: 2025-q2
       tmf_api: TMF620
+      tmf_api_name: Product Catalog / Order Management API
+      tmf_api_resources:
+        - Product
+        - ProductOffering
+        - ProductOfferingPrice
+        - Store
       tmf_api_confidence: mcp_verified
+      notes: TMF620 is a multi-domain API serving both Ecommerce and Order domains with different resources
 
   - engagement_id: eng-init-bopis-inventory
     engagement_uuid: 660e8400-e29b-41d4-a716-446655440002
@@ -38,7 +45,12 @@ engagements:
       priority: high
       milestone: 2025-q2
       tmf_api: TMF637
+      tmf_api_name: Product Inventory Management API
+      tmf_api_resources:
+        - ProductInventory
+        - StockLevel
       tmf_api_confidence: mcp_verified
+      notes: Inventory synchronization uses custom event contracts (not a TMF API resource)
 
   - engagement_id: eng-init-bopis-order
     engagement_uuid: 770e8400-e29b-41d4-a716-446655440003
@@ -56,7 +68,13 @@ engagements:
       priority: high
       milestone: 2025-q2
       tmf_api: TMF620
+      tmf_api_name: Product Catalog / Order Management API
+      tmf_api_resources:
+        - CustomerOrder
+        - CustomerProductOrder
+        - ProductOrderItem
       tmf_api_confidence: mcp_verified
+      notes: TMF620 is a multi-domain API serving both Ecommerce and Order domains with different resources
 
   - engagement_id: eng-init-bopis-party-role
     engagement_uuid: 880e8400-e29b-41d4-a716-446655440004
@@ -74,8 +92,13 @@ engagements:
       priority: high
       milestone: 2025-q2
       tmf_api: TMF629
+      tmf_api_name: Party Role Management API
+      tmf_api_resources:
+        - PartyRole
+        - StoreAssociate
+        - GeographicLocation
       tmf_api_confidence: mcp_verified
-      notes: Previously referred to as "Fulfillment" domain in earlier artifacts
+      notes: Previously referred to as "Fulfillment" domain in earlier artifacts. Pickup verification uses custom QR code contracts (not a TMF API resource)
 
   - engagement_id: eng-init-bopis-notification
     engagement_uuid: 990e8400-e29b-41d4-a716-446655440005
@@ -93,6 +116,11 @@ engagements:
       priority: medium
       milestone: 2025-q2
       tmf_api: null
+      tmf_api_name: Custom Notification Service
+      tmf_api_resources:
+        - EmailTemplate
+        - SMSMessage
+        - NotificationTemplate
       tmf_api_confidence: local_knowledge
       notes: Custom implementation, not a TMF ODA component. Email/SMS providers vary by region and are not standardized in TMF Open APIs.
 
@@ -100,4 +128,4 @@ execution:
   state: not_started
   processed_engagements: []
   skipped_engagements: []
-notes: "Domain engagements catalog for BOPIS initiative. All 5 domains are active. 4 of 5 domains have MCP-verified TMF ODA component alignment (Ecommerce, Inventory, Order, Party Role). Notification domain is custom implementation. Downstream domain-architecture skill should use this as the authoritative engagement selector catalog."
+notes: "Domain engagements catalog for BOPIS initiative. All 5 domains are active. 4 of 5 domains have MCP-verified TMF ODA component alignment (Ecommerce, Inventory, Order, Party Role). TMF620 is a multi-domain API serving both Ecommerce and Order domains with different resources. Notification domain is custom implementation. Downstream domain-architecture skill should use this as the authoritative engagement selector catalog."
