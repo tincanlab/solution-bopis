@@ -1,0 +1,72 @@
+version: "0.1"
+workspace_id: ""
+generated_at_utc: "2025-02-28T00:00:00Z"
+generated_by: "solution-architecture"
+policy_version: v1
+repos:
+  - repo_key: domain-ecommerce
+    repo_name: tincanlab/domain-bopis-ecommerce
+    purpose: Domain architecture and implementation for Ecommerce domain (Product Catalog Management ODA component). Manages product catalog, store location search, and BOPIS inventory visibility for online customers.
+    owning_scope: domain
+    source_components:
+      - comp-ecommerce-catalog
+      - comp-ecommerce-store-locator
+    expected_default_for_workspace: true
+    existing_workspace_mapping: false
+    existing_remote_repo: false
+    recommendation: create_new
+    notes: "Ecommerce domain needs separate repo for independent development, deployment, and scaling. Integrates with HCL Commerce platform."
+
+  - repo_key: domain-inventory
+    repo_name: tincanlab/domain-bopis-inventory
+    purpose: Domain architecture and implementation for Inventory domain (Product Inventory Management ODA component). Manages product inventory across stores, handles real-time reservations, and synchronizes inventory with external systems.
+    owning_scope: domain
+    source_components:
+      - comp-inventory-management
+      - comp-inventory-sync
+    expected_default_for_workspace: true
+    existing_workspace_mapping: false
+    existing_remote_repo: false
+    recommendation: create_new
+    notes: "Inventory domain needs separate repo for critical inventory accuracy and synchronization requirements. Integrates with inventory management system."
+
+  - repo_key: domain-order
+    repo_name: tincanlab/domain-bopis-order
+    purpose: Domain architecture and implementation for Order domain (Order Management ODA component). Manages BOPIS order lifecycle from placement through pickup completion. Handles order status tracking and customer queries.
+    owning_scope: domain
+    source_components:
+      - comp-order-management
+      - comp-order-tracker
+    expected_default_for_workspace: true
+    existing_workspace_mapping: false
+    existing_remote_repo: false
+    recommendation: create_new
+    notes: "Order domain needs separate repo for order lifecycle management and integration with HCL Commerce checkout."
+
+  - repo_key: domain-party-role
+    repo_name: tincanlab/domain-bopis-party-role
+    purpose: Domain architecture and implementation for Party Role Management domain (Party Role Management ODA component). Manages store associate interface for order fulfillment and pickup processing. Handles QR code verification and order completion.
+    owning_scope: domain
+    source_components:
+      - comp-party-role-management
+      - comp-fulfillment-ui
+      - comp-pickup-processor
+    expected_default_for_workspace: true
+    existing_workspace_mapping: false
+    existing_remote_repo: false
+    recommendation: create_new
+    notes: "Party Role domain needs separate repo for store associate operations and pickup processing. Integrates with POS system."
+
+  - repo_key: domain-notification
+    repo_name: tincanlab/domain-bopis-notification
+    purpose: Domain architecture and implementation for Notification domain. Manages customer notifications for order readiness and pickup instructions via email and SMS.
+    owning_scope: domain
+    source_components:
+      - comp-notification-service
+      - comp-email-sender
+      - comp-sms-sender
+    expected_default_for_workspace: true
+    existing_workspace_mapping: false
+    existing_remote_repo: false
+    recommendation: create_new
+    notes: "Notification domain needs separate repo for email/SMS communication. Custom service, not a TMF standard API."

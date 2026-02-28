@@ -1,0 +1,78 @@
+version: "0.1"
+workspace_id: ""
+request_id: repo-req-20250228-0001
+requested_at_utc: "2025-02-28T00:00:00Z"
+requested_by: "solution-architecture"
+source_artifacts:
+  - kind: repo_plan
+    git_path: architecture/solution/repo-plan.yml
+repos_requested:
+  - repo_key: domain-ecommerce
+    owner: tincanlab
+    name: domain-bopis-ecommerce
+    visibility: private
+    default_for_workspace: true
+    description: "Ecommerce domain architecture and implementation for BOPIS. Manages product catalog, store location search, and inventory visibility. Aligned to TMF620 Product Catalog Management ODA component."
+    purpose: domain
+    reason: ownership_boundary
+    approval:
+      state: draft
+      approved_by: null
+      approved_at_utc: null
+
+  - repo_key: domain-inventory
+    owner: tincanlab
+    name: domain-bopis-inventory
+    visibility: private
+    default_for_workspace: true
+    description: "Inventory domain architecture and implementation for BOPIS. Manages inventory across stores, real-time reservations, and synchronization. Aligned to TMF637 Product Inventory Management ODA component."
+    purpose: domain
+    reason: ownership_boundary
+    approval:
+      state: draft
+      approved_by: null
+      approved_at_utc: null
+
+  - repo_key: domain-order
+    owner: tincanlab
+    name: domain-bopis-order
+    visibility: private
+    default_for_workspace: true
+    description: "Order domain architecture and implementation for BOPIS. Manages order lifecycle from placement through pickup completion. Aligned to TMF620 Customer Order Management ODA component."
+    purpose: domain
+    reason: ownership_boundary
+    approval:
+      state: draft
+      approved_by: null
+      approved_at_utc: null
+
+  - repo_key: domain-party-role
+    owner: tincanlab
+    name: domain-bopis-party-role
+    visibility: private
+    default_for_workspace: true
+    description: "Party Role Management domain architecture and implementation for BOPIS. Manages store associate operations, order fulfillment, and pickup processing. Aligned to TMF629 Party Role Management ODA component."
+    purpose: domain
+    reason: ownership_boundary
+    approval:
+      state: draft
+      approved_by: null
+      approved_at_utc: null
+
+  - repo_key: domain-notification
+    owner: tincanlab
+    name: domain-bopis-notification
+    visibility: private
+    default_for_workspace: true
+    description: "Notification domain architecture and implementation for BOPIS. Manages customer notifications via email and SMS. Custom service, not a TMF standard API."
+    purpose: domain
+    reason: ownership_boundary
+    approval:
+      state: draft
+      approved_by: null
+      approved_at_utc: null
+execution:
+  state: not_started
+  created_repos: []
+  failed_repos: []
+notes: "Domain repos follow ownership boundaries defined in solution architecture. Each domain repo will receive component-specs handoff from solution repo. Repo-creation skill should create these repos and update solution-index.yml with repo URLs."

@@ -1,0 +1,103 @@
+version: "1.0"
+workspace_id: ""
+initiative_id: "init-bopis"
+generated_at_utc: "2025-02-28T00:00:00Z"
+generated_by: "solution-architecture"
+engagements:
+  - engagement_id: eng-init-bopis-ecommerce
+    engagement_uuid: 550e8400-e29b-41d4-a716-446655440001
+    initiative_id: init-bopis
+    domain_id: ecommerce
+    domain_name: Ecommerce Domain
+    oda_component_name: Product Catalog Management
+    name: BOPIS - Ecommerce Domain Engagement
+    domain_repo_url: ""
+    tmfc_component_id: TMFC001
+    handoff_ref: architecture/solution/domain-handoffs/ecommerce/component-specs.yml
+    status: active
+    owner: Engineering Team
+    metadata:
+      priority: high
+      milestone: 2025-q2
+      tmf_api: TMF620
+      tmf_api_confidence: mcp_verified
+
+  - engagement_id: eng-init-bopis-inventory
+    engagement_uuid: 660e8400-e29b-41d4-a716-446655440002
+    initiative_id: init-bopis
+    domain_id: inventory
+    domain_name: Inventory Domain
+    oda_component_name: Product Inventory Management
+    name: BOPIS - Inventory Domain Engagement
+    domain_repo_url: ""
+    tmfc_component_id: TMFC005
+    handoff_ref: architecture/solution/domain-handoffs/inventory/component-specs.yml
+    status: active
+    owner: Engineering Team
+    metadata:
+      priority: high
+      milestone: 2025-q2
+      tmf_api: TMF637
+      tmf_api_confidence: mcp_verified
+
+  - engagement_id: eng-init-bopis-order
+    engagement_uuid: 770e8400-e29b-41d4-a716-446655440003
+    initiative_id: init-bopis
+    domain_id: order
+    domain_name: Order Domain
+    oda_component_name: Order Management
+    name: BOPIS - Order Domain Engagement
+    domain_repo_url: ""
+    tmfc_component_id: TMFC003
+    handoff_ref: architecture/solution/domain-handoffs/order/component-specs.yml
+    status: active
+    owner: Engineering Team
+    metadata:
+      priority: high
+      milestone: 2025-q2
+      tmf_api: TMF620
+      tmf_api_confidence: mcp_verified
+
+  - engagement_id: eng-init-bopis-party-role
+    engagement_uuid: 880e8400-e29b-41d4-a716-446655440004
+    initiative_id: init-bopis
+    domain_id: party-role
+    domain_name: Party Role Management Domain
+    oda_component_name: Party Role Management
+    name: BOPIS - Party Role Management Domain Engagement
+    domain_repo_url: ""
+    tmfc_component_id: TMFC006
+    handoff_ref: architecture/solution/domain-handoffs/party-role/component-specs.yml
+    status: active
+    owner: Engineering Team
+    metadata:
+      priority: high
+      milestone: 2025-q2
+      tmf_api: TMF629
+      tmf_api_confidence: mcp_verified
+      notes: Previously referred to as "Fulfillment" domain in earlier artifacts
+
+  - engagement_id: eng-init-bopis-notification
+    engagement_uuid: 990e8400-e29b-41d4-a716-446655440005
+    initiative_id: init-bopis
+    domain_id: notification
+    domain_name: Notification Domain
+    oda_component_name: Notification Service
+    name: BOPIS - Notification Domain Engagement
+    domain_repo_url: ""
+    tmfc_component_id: null
+    handoff_ref: architecture/solution/domain-handoffs/notification/component-specs.yml
+    status: active
+    owner: Engineering Team
+    metadata:
+      priority: medium
+      milestone: 2025-q2
+      tmf_api: null
+      tmf_api_confidence: local_knowledge
+      notes: Custom implementation, not a TMF ODA component. Email/SMS providers vary by region and are not standardized in TMF Open APIs.
+
+execution:
+  state: not_started
+  processed_engagements: []
+  skipped_engagements: []
+notes: "Domain engagements catalog for BOPIS initiative. All 5 domains are active. 4 of 5 domains have MCP-verified TMF ODA component alignment (Ecommerce, Inventory, Order, Party Role). Notification domain is custom implementation. Downstream domain-architecture skill should use this as the authoritative engagement selector catalog."

@@ -19,8 +19,12 @@ cascade_state:
       - "architecture/solution/domain-handoffs/ecommerce/component-specs.yml"
       - "architecture/solution/domain-handoffs/inventory/component-specs.yml"
       - "architecture/solution/domain-handoffs/order/component-specs.yml"
-      - "architecture/solution/domain-handoffs/fulfillment/component-specs.yml"
+      - "architecture/solution/domain-handoffs/party-role/component-specs.yml"
       - "architecture/solution/domain-handoffs/notification/component-specs.yml"
+      - "architecture/solution/domain-engagements.yml"
+      - "architecture/solution/repo-plan.yml"
+      - "architecture/solution/repo-creation-request.yml"
+      - "architecture/solution/domain-api-validation-report.md"
   domain_architecture:
     status: "not_started"
     advanced_at: ""
