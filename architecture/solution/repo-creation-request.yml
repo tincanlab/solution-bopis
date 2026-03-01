@@ -15,10 +15,6 @@ repos_requested:
     description: "Ecommerce domain architecture and implementation for BOPIS. Manages product catalog, store location search, and inventory visibility. Aligned to TMF620 Product Catalog Management ODA component."
     purpose: domain
     reason: ownership_boundary
-    approval:
-      state: draft
-      approved_by: null
-      approved_at_utc: null
 
   - repo_key: domain-inventory
     owner: tincanlab
@@ -28,10 +24,6 @@ repos_requested:
     description: "Inventory domain architecture and implementation for BOPIS. Manages inventory across stores, real-time reservations, and synchronization. Aligned to TMF637 Product Inventory Management ODA component."
     purpose: domain
     reason: ownership_boundary
-    approval:
-      state: draft
-      approved_by: null
-      approved_at_utc: null
 
   - repo_key: domain-order
     owner: tincanlab
@@ -41,10 +33,6 @@ repos_requested:
     description: "Order domain architecture and implementation for BOPIS. Manages order lifecycle from placement through pickup completion. Aligned to TMF620 Customer Order Management ODA component."
     purpose: domain
     reason: ownership_boundary
-    approval:
-      state: draft
-      approved_by: null
-      approved_at_utc: null
 
   - repo_key: domain-party-role
     owner: tincanlab
@@ -54,10 +42,6 @@ repos_requested:
     description: "Party Role Management domain architecture and implementation for BOPIS. Manages store associate operations, order fulfillment, and pickup processing. Aligned to TMF629 Party Role Management ODA component."
     purpose: domain
     reason: ownership_boundary
-    approval:
-      state: draft
-      approved_by: null
-      approved_at_utc: null
 
   - repo_key: domain-notification
     owner: tincanlab
@@ -67,10 +51,10 @@ repos_requested:
     description: "Notification domain architecture and implementation for BOPIS. Manages customer notifications via email and SMS. Custom service, not a TMF standard API."
     purpose: domain
     reason: ownership_boundary
-    approval:
-      state: draft
-      approved_by: null
-      approved_at_utc: null
+approval:
+  state: pending
+  approved_by: null
+  approved_at_utc: null
 execution:
   state: not_started
   created_repos: []

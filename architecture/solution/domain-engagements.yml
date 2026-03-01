@@ -11,9 +11,9 @@ engagements:
     domain_name: Ecommerce Domain
     oda_component_name: Product Catalog Management
     name: BOPIS - Ecommerce Domain Engagement
-    domain_repo_url: ""
+    domain_repo_url: https://github.com/tincanlab/domain-bopis-ecommerce
     tmfc_component_id: TMFC001
-    handoff_ref: architecture/solution/domain-handoffs/ecommerce/component-specs.yml
+    handoff_ref: architecture/domains/ecommerce/component-specs.yml
     status: active
     owner: Engineering Team
     metadata:
@@ -36,9 +36,9 @@ engagements:
     domain_name: Inventory Domain
     oda_component_name: Product Inventory Management
     name: BOPIS - Inventory Domain Engagement
-    domain_repo_url: ""
+    domain_repo_url: https://github.com/tincanlab/domain-bopis-inventory
     tmfc_component_id: TMFC005
-    handoff_ref: architecture/solution/domain-handoffs/inventory/component-specs.yml
+    handoff_ref: architecture/domains/inventory/component-specs.yml
     status: active
     owner: Engineering Team
     metadata:
@@ -59,9 +59,9 @@ engagements:
     domain_name: Order Domain
     oda_component_name: Order Management
     name: BOPIS - Order Domain Engagement
-    domain_repo_url: ""
+    domain_repo_url: https://github.com/tincanlab/domain-bopis-order
     tmfc_component_id: TMFC003
-    handoff_ref: architecture/solution/domain-handoffs/order/component-specs.yml
+    handoff_ref: architecture/domains/order/component-specs.yml
     status: active
     owner: Engineering Team
     metadata:
@@ -83,9 +83,9 @@ engagements:
     domain_name: Party Role Management Domain
     oda_component_name: Party Role Management
     name: BOPIS - Party Role Management Domain Engagement
-    domain_repo_url: ""
+    domain_repo_url: https://github.com/tincanlab/domain-bopis-party-role
     tmfc_component_id: TMFC006
-    handoff_ref: architecture/solution/domain-handoffs/party-role/component-specs.yml
+    handoff_ref: architecture/domains/party-role/component-specs.yml
     status: active
     owner: Engineering Team
     metadata:
@@ -107,9 +107,9 @@ engagements:
     domain_name: Notification Domain
     oda_component_name: Notification Service
     name: BOPIS - Notification Domain Engagement
-    domain_repo_url: ""
-    tmfc_component_id: null
-    handoff_ref: architecture/solution/domain-handoffs/notification/component-specs.yml
+    domain_repo_url: https://github.com/tincanlab/domain-bopis-notification
+    tmfc_component_id: "N/A"
+    handoff_ref: architecture/domains/notification/component-specs.yml
     status: active
     owner: Engineering Team
     metadata:

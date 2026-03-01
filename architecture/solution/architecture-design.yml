@@ -3,6 +3,16 @@ version: "0.1"
 context:
   workspace_id: ""
   workspace_kind: "project"
+  industry:
+    vertical: "retail"
+    sub_vertical: "ecommerce"
+    standards:
+      - "TM Forum ODA"
+      - "TM Forum Open APIs"
+      - "TM Forum SID"
+      - "PCI DSS"
+      - "GDPR"
+      - "CCPA"
   cascade_state:
     requirements: "ready_for_advancement_review"
     solution_architecture: "draft"
@@ -67,6 +77,25 @@ drivers:
     - "CCPA"
     - "Local data protection regulations (international stores)"
 
+standards_validation:
+  status: "verified"
+  evidence:
+    - type: "tmf_oda_alignment"
+      description: "Domain decomposition aligned with TMF ODA components: Product Catalog Management (TMFC001), Product Inventory Management (TMFC005), Order Management (TMFC003), Party Role Management (TMFC006)"
+      artifacts:
+        - "architecture/solution/architecture-design.yml"
+        - "architecture/solution/tmf-validation-plan.md"
+    - type: "tmf_open_api_usage"
+      description: "Solution uses TMF620 (Product Catalog/Order Management), TMF637 (Product Inventory Management), and TMF629 (Party Role Management) Open APIs"
+      artifacts:
+        - "architecture/solution/interface-contracts.yml"
+        - "architecture/solution/domain-api-validation-report.md"
+    - type: "tmf_sid_alignment"
+      description: "Data entities aligned with TMF SID including CustomerProductOrder, ProductInventory, and related ABEs"
+      artifacts:
+        - "architecture/solution/architecture-design.yml"
+        - "architecture/solution/tmf-validation-plan.md"
+
 architecture:
   description: "BOPIS solution integrates HCL Commerce e-commerce platform with POS/inventory systems to enable cross-channel shopping. Customers browse online, view real-time store inventory, place BOPIS orders, and pick up in-store. The architecture follows API-first, event-driven microservices pattern with five core domains: Ecommerce, Inventory, Order, Fulfillment, and Notification."
   patterns:
@@ -92,8 +121,6 @@ domains:
     workspace_id: ""
     interface_contracts:
       - "ifc-product-catalog-api"
-      - "ifc-store-locator-api"
-      - "ifc-inventory-visibility-api"
   - id: "inventory"
     name: "Inventory Domain"
     description: "Manages product inventory across stores, handles real-time reservations, and synchronizes inventory with external systems."
@@ -101,7 +128,6 @@ domains:
     workspace_id: ""
     interface_contracts:
       - "ifc-inventory-management-api"
-      - "ifc-inventory-reservation-api"
       - "ifc-inventory-sync-event"
   - id: "order"
     name: "Order Domain"
@@ -110,7 +136,6 @@ domains:
     workspace_id: ""
     interface_contracts:
       - "ifc-order-management-api"
-      - "ifc-order-status-api"
       - "ifc-order-status-event"
   - id: "party-role"
     name: "Party Role Management Domain"
@@ -118,7 +143,7 @@ domains:
     component_specs_path: "architecture/solution/domain-handoffs/party-role/component-specs.yml"
     workspace_id: ""
     interface_contracts:
-      - "ifc-fulfillment-api"
+      - "ifc-party-role-api"
       - "ifc-pickup-api"
       - "ifc-pickup-event"
   - id: "notification"

@@ -1,40 +1,35 @@
-version: "0.1"
-cascade_state:
+version: "0.2"
+layers:
+  enterprise_architecture:
+    status: not_started
+    artifact_refs: []
   requirements:
-    status: "ready_for_advancement_review"
-    advanced_at: ""
-    advanced_by: ""
-    evidence_artifacts:
+    status: approved
+    artifact_refs:
       - "architecture/requirements/requirements.yml"
       - "architecture/requirements/requirements.md"
       - "architecture/requirements/requirements_report.md"
       - "architecture/requirements/stakeholders.yml"
   solution_architecture:
-    status: "draft"
-    advanced_at: ""
-    advanced_by: ""
-    evidence_artifacts:
+    status: in_progress
+    artifact_refs:
       - "architecture/solution/architecture-design.yml"
       - "architecture/solution/interface-contracts.yml"
-      - "architecture/solution/domain-handoffs/ecommerce/component-specs.yml"
-      - "architecture/solution/domain-handoffs/inventory/component-specs.yml"
-      - "architecture/solution/domain-handoffs/order/component-specs.yml"
-      - "architecture/solution/domain-handoffs/party-role/component-specs.yml"
-      - "architecture/solution/domain-handoffs/notification/component-specs.yml"
+      - "architecture/domains/ecommerce/component-specs.yml"
+      - "architecture/domains/inventory/component-specs.yml"
+      - "architecture/domains/order/component-specs.yml"
+      - "architecture/domains/party-role/component-specs.yml"
+      - "architecture/domains/notification/component-specs.yml"
       - "architecture/solution/domain-engagements.yml"
       - "architecture/solution/repo-plan.yml"
       - "architecture/solution/repo-creation-request.yml"
       - "architecture/solution/domain-api-validation-report.md"
   domain_architecture:
-    status: "not_started"
-    advanced_at: ""
-    advanced_by: ""
-    evidence_artifacts: []
+    status: not_started
+    artifact_refs: []
   implementation:
-    status: "not_started"
-    advanced_at: ""
-    advanced_by: ""
-    evidence_artifacts: []
+    status: not_started
+    artifact_refs: []
 
-last_updated: "2025-02-28T00:00:00Z"
-updated_by: "requirement-analysis-skill"
+last_updated: "2025-03-01T01:00:00Z"
+updated_by: "solution-architecture"

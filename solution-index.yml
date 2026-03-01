@@ -14,7 +14,7 @@ domains:
   - domain_key: ecommerce
     oda_component: Product Catalog Management
     domain_repo:
-      repo_url: ""
+      repo_url: https://github.com/tincanlab/domain-bopis-ecommerce
       repo_key: domain-ecommerce
       entrypoints:
         domain_md: DOMAIN.md
@@ -22,11 +22,11 @@ domains:
         cascade_state: .openarchitect/cascade-state.yml
     tmf_apis:
       - api_id: TMF620
-        implementation_repo_url: ""
+        implementation_repo_url: https://github.com/tincanlab/domain-bopis-ecommerce
   - domain_key: inventory
     oda_component: Product Inventory Management
     domain_repo:
-      repo_url: ""
+      repo_url: https://github.com/tincanlab/domain-bopis-inventory
       repo_key: domain-inventory
       entrypoints:
         domain_md: DOMAIN.md
@@ -34,11 +34,11 @@ domains:
         cascade_state: .openarchitect/cascade-state.yml
     tmf_apis:
       - api_id: TMF637
-        implementation_repo_url: ""
+        implementation_repo_url: https://github.com/tincanlab/domain-bopis-inventory
   - domain_key: order
     oda_component: Order Management
     domain_repo:
-      repo_url: ""
+      repo_url: https://github.com/tincanlab/domain-bopis-order
       repo_key: domain-order
       entrypoints:
         domain_md: DOMAIN.md
@@ -46,11 +46,11 @@ domains:
         cascade_state: .openarchitect/cascade-state.yml
     tmf_apis:
       - api_id: TMF620
-        implementation_repo_url: ""
+        implementation_repo_url: https://github.com/tincanlab/domain-bopis-order
   - domain_key: party-role
     oda_component: Party Role Management
     domain_repo:
-      repo_url: ""
+      repo_url: https://github.com/tincanlab/domain-bopis-party-role
       repo_key: domain-party-role
       entrypoints:
         domain_md: DOMAIN.md
@@ -58,22 +58,22 @@ domains:
         cascade_state: .openarchitect/cascade-state.yml
     tmf_apis:
       - api_id: TMF629
-        implementation_repo_url: ""
+        implementation_repo_url: https://github.com/tincanlab/domain-bopis-party-role
   - domain_key: notification
     oda_component: Notification Service
     domain_repo:
-      repo_url: ""
+      repo_url: https://github.com/tincanlab/domain-bopis-notification
       repo_key: domain-notification
       entrypoints:
         domain_md: DOMAIN.md
         agents_md: AGENTS.md
         cascade_state: .openarchitect/cascade-state.yml
     tmf_apis:
-      - api_id: ""
-        implementation_repo_url: ""
+      - api_id: CUSTOM-NOTIFICATION
+        implementation_repo_url: https://github.com/tincanlab/domain-bopis-notification
 repos:
   - repo_key: solution_design
-    repo_url: ""
+    repo_url: https://github.com/tincanlab/solution-bopis
     repo_name: tincanlab/solution-bopis
     purpose: design
     description: Solution architecture design repo for BOPIS initiative
@@ -82,32 +82,52 @@ repos:
       agents_md: AGENTS.md
       cascade_state: .openarchitect/cascade-state.yml
   - repo_key: domain-ecommerce
-    repo_url: ""
+    repo_url: https://github.com/tincanlab/domain-bopis-ecommerce
     repo_name: tincanlab/domain-bopis-ecommerce
     purpose: domain
     description: Ecommerce domain architecture and implementation for BOPIS
     status: requested
+    entrypoints:
+      domain_md: DOMAIN.md
+      agents_md: AGENTS.md
+      cascade_state: .openarchitect/cascade-state.yml
   - repo_key: domain-inventory
-    repo_url: ""
+    repo_url: https://github.com/tincanlab/domain-bopis-inventory
     repo_name: tincanlab/domain-bopis-inventory
     purpose: domain
     description: Inventory domain architecture and implementation for BOPIS
     status: requested
+    entrypoints:
+      domain_md: DOMAIN.md
+      agents_md: AGENTS.md
+      cascade_state: .openarchitect/cascade-state.yml
   - repo_key: domain-order
-    repo_url: ""
+    repo_url: https://github.com/tincanlab/domain-bopis-order
     repo_name: tincanlab/domain-bopis-order
     purpose: domain
     description: Order domain architecture and implementation for BOPIS
     status: requested
+    entrypoints:
+      domain_md: DOMAIN.md
+      agents_md: AGENTS.md
+      cascade_state: .openarchitect/cascade-state.yml
   - repo_key: domain-party-role
-    repo_url: ""
+    repo_url: https://github.com/tincanlab/domain-bopis-party-role
     repo_name: tincanlab/domain-bopis-party-role
     purpose: domain
     description: Party Role Management domain architecture and implementation for BOPIS
     status: requested
+    entrypoints:
+      domain_md: DOMAIN.md
+      agents_md: AGENTS.md
+      cascade_state: .openarchitect/cascade-state.yml
   - repo_key: domain-notification
-    repo_url: ""
+    repo_url: https://github.com/tincanlab/domain-bopis-notification
     repo_name: tincanlab/domain-bopis-notification
     purpose: domain
     description: Notification domain architecture and implementation for BOPIS
     status: requested
+    entrypoints:
+      domain_md: DOMAIN.md
+      agents_md: AGENTS.md
+      cascade_state: .openarchitect/cascade-state.yml

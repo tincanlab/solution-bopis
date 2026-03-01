@@ -1,0 +1,139 @@
+# EA authoritative domain governance map.
+# Enterprise domain registry for BOPIS initiative.
+
+version: "1.0"
+enterprise_id: ent-tincanlab
+domains:
+  - domain_id: ecommerce
+    name: Ecommerce Domain
+    owner: domain-arch-ecommerce
+    status: active
+    capabilities:
+      - capability_id: cap-product-catalog
+        name: Manage product catalog and store location data
+      - capability_id: cap-inventory-visibility
+        name: Provide real-time inventory visibility across stores
+    standards:
+      frameworks:
+        - TM Forum eTOM
+        - TM Forum SID
+      policies:
+        - api_first_design
+        - event_driven_integration
+    target_state:
+      principles:
+        - Expose canonical product catalog APIs.
+        - Provide real-time inventory visibility via events.
+      constraints:
+        - External interfaces must remain backward-compatible.
+        - Domain emits inventory sync events for all changes.
+    metadata:
+      oda_component_name: Product Catalog Management
+      tmfc_component_id: TMFC001
+
+  - domain_id: inventory
+    name: Inventory Domain
+    owner: domain-arch-inventory
+    status: active
+    capabilities:
+      - capability_id: cap-inventory-management
+        name: Manage product inventory across stores
+      - capability_id: cap-inventory-reservation
+        name: Handle atomic inventory reservations for orders
+    standards:
+      frameworks:
+        - TM Forum eTOM
+        - TM Forum SID
+      policies:
+        - atomic_reservations
+        - event_driven_sync
+    target_state:
+      principles:
+        - Ensure inventory accuracy across channels.
+        - Provide atomic reservations to prevent overselling.
+      constraints:
+        - Inventory reservations must be atomic and consistent.
+        - Sync inventory changes to all channels within SLA.
+    metadata:
+      oda_component_name: Product Inventory Management
+      tmfc_component_id: TMFC005
+
+  - domain_id: order
+    name: Order Domain
+    owner: domain-arch-order
+    status: active
+    capabilities:
+      - capability_id: cap-order-lifecycle
+        name: Manage BOPIS order lifecycle from placement to completion
+      - capability_id: cap-order-tracking
+        name: Provide order status tracking and customer queries
+    standards:
+      frameworks:
+        - TM Forum eTOM
+        - TM Forum SID
+      policies:
+        - saga_pattern_for_orchestration
+        - lifecycle_events_required
+    target_state:
+      principles:
+        - Expose canonical order lifecycle APIs/events.
+        - Use saga pattern for distributed transactions.
+      constraints:
+        - Order state transitions must be idempotent.
+        - All state changes emit lifecycle events.
+    metadata:
+      oda_component_name: Order Management
+      tmfc_component_id: TMFC003
+
+  - domain_id: party-role
+    name: Party Role Management Domain
+    owner: domain-arch-party-role
+    status: active
+    capabilities:
+      - capability_id: cap-store-fulfillment
+        name: Manage store associate operations for order fulfillment
+      - capability_id: cap-pickup-verification
+        name: Handle QR code verification and pickup completion
+    standards:
+      frameworks:
+        - TM Forum eTOM
+        - TM Forum SID
+      policies:
+        - secure_verification
+        - transaction_recording
+    target_state:
+      principles:
+        - Provide secure pickup verification methods.
+        - Record all fulfillment transactions for audit.
+      constraints:
+        - Pickup verification must be secure and auditable.
+        - Integration with POS must support transaction recording.
+    metadata:
+      oda_component_name: Party Role Management
+      tmfc_component_id: TMFC006
+
+  - domain_id: notification
+    name: Notification Domain
+    owner: domain-arch-notification
+    status: active
+    capabilities:
+      - capability_id: cap-customer-notification
+        name: Send email and SMS notifications to customers
+      - capability_id: cap-notification-templates
+        name: Manage notification templates for different events
+    standards:
+      frameworks:
+        - TM Forum eTOM
+      policies:
+        - provider_abstraction
+        - gdpr_compliance
+    target_state:
+      principles:
+        - Abstract provider-specific implementations.
+        - Ensure compliance with data privacy regulations.
+      constraints:
+        - Notification providers must be pluggable.
+        - Customer data must be handled per GDPR/CCPA requirements.
+    metadata:
+      oda_component_name: Notification Service
+      tmfc_component_id: N/A

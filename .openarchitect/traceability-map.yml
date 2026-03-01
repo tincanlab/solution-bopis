@@ -1,0 +1,151 @@
+version: "1.0"
+initiative_id: init-bopis
+generated_at_utc: "2025-03-01T01:00:00Z"
+generated_by: solution-architecture
+
+components:
+  comp-ecommerce-catalog:
+    design_paths:
+      - "architecture/domains/ecommerce/component-specs.yml"
+      - "architecture/solution/architecture-design.yml"
+    code_paths:
+      - "src/services/catalog/"
+      - "src/api/product/"
+      - "src/api/store/"
+    interface_ids:
+      - "ifc-product-catalog-api"
+      - "ifc-inventory-sync-event"
+  comp-inventory-management:
+    design_paths:
+      - "architecture/domains/inventory/component-specs.yml"
+      - "architecture/solution/architecture-design.yml"
+    code_paths:
+      - "src/services/inventory/"
+      - "src/api/inventory/"
+      - "src/events/inventory/"
+    interface_ids:
+      - "ifc-inventory-management-api"
+      - "ifc-inventory-system-integration"
+      - "ifc-inventory-sync-event"
+  comp-order-management:
+    design_paths:
+      - "architecture/domains/order/component-specs.yml"
+      - "architecture/solution/architecture-design.yml"
+    code_paths:
+      - "src/services/order/"
+      - "src/api/order/"
+      - "src/events/order/"
+    interface_ids:
+      - "ifc-order-management-api"
+      - "ifc-order-status-event"
+  comp-party-role-management:
+    design_paths:
+      - "architecture/domains/party-role/component-specs.yml"
+      - "architecture/solution/architecture-design.yml"
+    code_paths:
+      - "src/services/party-role/"
+      - "src/api/party-role/"
+      - "src/api/pickup/"
+    interface_ids:
+      - "ifc-party-role-api"
+      - "ifc-pickup-api"
+      - "ifc-pickup-event"
+  comp-notification-service:
+    design_paths:
+      - "architecture/domains/notification/component-specs.yml"
+      - "architecture/solution/architecture-design.yml"
+    code_paths:
+      - "src/services/notification/"
+      - "src/api/notification/"
+      - "src/providers/"
+    interface_ids:
+      - "ifc-notification-api"
+
+traceability:
+  requirements_to_solution:
+    - requirement_id: REQ-BOPIS-001
+      solution_artifact: architecture/solution/architecture-design.yml
+      description: "Enable online purchase with in-store pickup"
+    - requirement_id: REQ-BOPIS-002
+      solution_artifact: architecture/solution/architecture-design.yml
+      description: "Real-time inventory visibility across stores"
+    - requirement_id: REQ-BOPIS-003
+      solution_artifact: architecture/solution/interface-contracts.yml
+      description: "Inventory reservation and synchronization"
+
+  solution_to_domains:
+    - solution_artifact: architecture/domains/ecommerce/component-specs.yml
+      domain: ecommerce
+      domain_repo: tincanlab/domain-bopis-ecommerce
+      tmfc_component: TMFC001
+    - solution_artifact: architecture/domains/inventory/component-specs.yml
+      domain: inventory
+      domain_repo: tincanlab/domain-bopis-inventory
+      tmfc_component: TMFC005
+    - solution_artifact: architecture/domains/order/component-specs.yml
+      domain: order
+      domain_repo: tincanlab/domain-bopis-order
+      tmfc_component: TMFC003
+    - solution_artifact: architecture/domains/party-role/component-specs.yml
+      domain: party-role
+      domain_repo: tincanlab/domain-bopis-party-role
+      tmfc_component: TMFC006
+    - solution_artifact: architecture/domains/notification/component-specs.yml
+      domain: notification
+      domain_repo: tincanlab/domain-bopis-notification
+      tmfc_component: N/A
+
+  tmf_to_solution:
+    - tmf_api: TMF620
+      api_name: Product Catalog / Order Management API
+      solution_artifacts:
+        - architecture/solution/interface-contracts.yml
+        - architecture/solution/architecture-design.yml
+      domains:
+        - ecommerce
+        - order
+      confidence: mcp_verified
+    - tmf_api: TMF637
+      api_name: Product Inventory Management API
+      solution_artifacts:
+        - architecture/solution/interface-contracts.yml
+        - architecture/solution/architecture-design.yml
+      domains:
+        - inventory
+      confidence: mcp_verified
+    - tmf_api: TMF629
+      api_name: Party Role Management API
+      solution_artifacts:
+        - architecture/solution/interface-contracts.yml
+        - architecture/solution/architecture-design.yml
+      domains:
+        - party-role
+      confidence: mcp_verified
+
+  oda_to_solution:
+    - oda_component: Product Catalog Management
+      tmfc_id: TMFC001
+      domain: ecommerce
+      solution_artifacts:
+        - architecture/solution/architecture-design.yml
+        - architecture/domains/ecommerce/component-specs.yml
+    - oda_component: Product Inventory Management
+      tmfc_id: TMFC005
+      domain: inventory
+      solution_artifacts:
+        - architecture/solution/architecture-design.yml
+        - architecture/domains/inventory/component-specs.yml
+    - oda_component: Order Management
+      tmfc_id: TMFC003
+      domain: order
+      solution_artifacts:
+        - architecture/solution/architecture-design.yml
+        - architecture/domains/order/component-specs.yml
+    - oda_component: Party Role Management
+      tmfc_id: TMFC006
+      domain: party-role
+      solution_artifacts:
+        - architecture/solution/architecture-design.yml
+        - architecture/domains/party-role/component-specs.yml
+
+notes: "Traceability map for BOPIS initiative. Links requirements, solution artifacts, domain engagements, and TMF/ODA references."

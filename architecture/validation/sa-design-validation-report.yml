@@ -1,0 +1,27 @@
+validation_id: sa-val-20260301011857
+validated_at: '2026-03-01T01:18:57.766506+00:00'
+repository_root: /home/op/solution-bopis
+overall_decision: pass
+strict_mode: false
+vertical: retail
+summary:
+  errors: 0
+  warnings: 2
+recommended_actions:
+- Proceed to stakeholder review / governance gate with this validation report as evidence.
+findings:
+- severity: warning
+  check_id: domain_engagements_schema
+  message: Schema not found for domain-engagements.schema.json; schema validation
+    skipped.
+  path: architecture/solution/domain-engagements.yml
+- severity: warning
+  check_id: ea_domain_registry_schema
+  message: Schema not found for domain-registry.schema.json; schema validation skipped.
+  path: architecture/enterprise/domain-registry.yml
+governance_signal:
+  cascade_layer: solution_architecture
+  cascade_recommendation: ready_for_review
+  remediation_status: none
+  note: 'Pending EA governance: provide/update `architecture/enterprise/domain-registry.yml`
+    with related `domain_id` entries before downstream progression.'
