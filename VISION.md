@@ -1,25 +1,26 @@
-# BOPIS Vision
+# VISION (Solution)
 
-## Long-term Intent
+Owner: Solution Architect (SA)
 
-Enable customers to shop seamlessly across online and in-store channels, giving them the flexibility to browse online and pick up in-store at their convenience. The BOPIS capability will transform our retail experience by bridging digital and physical touchpoints while maintaining inventory accuracy and operational efficiency.
+Purpose: define the intended future state and success outcomes for the BOPIS solution.
+This document is intentionally stable and low-churn; execution detail belongs in `ROADMAP.md`.
 
-## Target Outcomes
+## Why This Solution Exists
 
-### Customer Experience
-- **Seamless cross-channel shopping**: Customers browse online, see real-time store inventory, and complete purchase with confidence
-- **Fast, convenient pickup**: Customers arrive at store and receive their order in under 5 minutes with minimal wait time
-- **Full visibility**: Customers track order status from placement through pickup with real-time updates
+- Business problem: Customers cannot purchase online and pick up in-store, forcing them to choose between channel convenience and immediate gratification. Retailers lose sales to competitors who offer BOPIS.
+- Target users/stakeholders: Online shoppers, in-store customers, store associates, retail operations, and the ecommerce/inventory/order teams.
+- Value outcome: Customers gain cross-channel flexibility; stores increase foot traffic and basket size; operations gain inventory accuracy across channels.
 
-### Operational Excellence
-- **Efficient store operations**: Store associates fulfill orders quickly with intuitive tools and clear workflows
-- **Accurate inventory**: Real-time inventory synchronization prevents overselling and stockouts across channels
-- **Scalable fulfillment**: System handles 1,000+ BOPIS orders per day across 50%+ of stores
+## Target Future State
 
-### Business Value
-- **Increased sales**: BOPIS drives higher conversion rates and basket sizes through channel convenience
-- **Customer retention**: Improved experience increases customer loyalty and repeat purchases
-- **Data-driven optimization**: Order and pickup analytics enable continuous operational improvements
+- Outcome 1: Customers can browse online, see real-time store inventory, and pick up in-store with < 5 minutes wait time (p95).
+- Outcome 2: Store operations handle 1,000+ BOPIS orders/day across 50%+ of stores with > 99% order accuracy.
+- Outcome 3: Inventory synchronization latency < 30 seconds, eliminating overselling and cross-channel stockouts.
+
+## Scope Boundaries
+
+- In scope: Online product browsing with store inventory visibility, BOPIS order placement, inventory reservation, store associate fulfillment interface, customer pickup notifications, QR code verification.
+- Out of scope: In-store-only purchases, ship-to-home orders, returns processing (Phase 4+), cross-border BOPIS, loyalty program integration (Phase 3+).
 
 ## Success Metrics
 
@@ -40,13 +41,19 @@ Enable customers to shop seamlessly across online and in-store channels, giving 
 | Party Role Management | Store associate operations, pickup processing |
 | Notification | Email/SMS notifications |
 
-## Technology Principles
+## Principles and Non-Negotiables
 
-- **API-first design**: All integrations through well-defined REST APIs with clear contracts
-- **Event-driven synchronization**: Inventory and order state changes propagate asynchronously for real-time accuracy
-- **Security-by-design**: PCI DSS, GDPR, and CCPA compliance built in from requirements
-- **Resilient by default**: Circuit breakers, retries, and fallback mechanisms ensure system availability
-- **Observability everywhere**: Comprehensive logging, metrics, and tracing for operational visibility
+- API-first design: All integrations through well-defined REST APIs with clear contracts.
+- Event-driven synchronization: Inventory and order state changes propagate asynchronously for real-time accuracy.
+- Security-by-design: PCI DSS, GDPR, and CCPA compliance built in from requirements — not retrofitted.
+- Resilient by default: Circuit breakers, retries, and fallback mechanisms ensure system availability.
+- Observability everywhere: Comprehensive logging, metrics, and tracing for operational visibility.
+
+## Alignment
+
+- Enterprise alignment: Not applicable (enterprise-level repo not yet established).
+- Roadmap link: [ROADMAP.md](ROADMAP.md)
+- Machine scope link: [solution-index.yml](solution-index.yml)
 
 ## Future State (12-24 months)
 

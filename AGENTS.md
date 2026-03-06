@@ -1,3 +1,11 @@
+# AGENTS
+
+Role: sa
+Instruction: After reading this file, read `SOLUTION.md` (mandatory entrypoint).
+Guardrail: `SOLUTION.md` is a critical contract file. Preserve template section structure and keep mutable operational detail in linked canonical artifacts.
+
+---
+
 # BOPIS Solution Architecture Agents
 
 ## Repository Context

@@ -1,4 +1,73 @@
-# BOPIS Roadmap
+# ROADMAP (Solution)
+
+Owner: Solution Architect (SA)
+
+Purpose: a single, developer-facing plan for this solution that aggregates domain roadmaps and reconciles cross-domain dependencies.
+
+Authoring contract:
+- Humans edit `ROADMAP.md` only.
+- Tools/skills generate `ROADMAP.yml` from this file (do not hand-edit `ROADMAP.yml`).
+
+## Scope
+
+- Solution key: `bopis`
+- Time horizon: Phase 1 (MVP, months 1-4) + Phase 2 (Scale, months 5-7)
+- Domain sources: ecommerce, inventory, order, party-role, notification domain repos (not yet established)
+- Provenance evidence: domain repo `inputs/` snapshots (pending domain repo creation)
+
+## Current Status
+
+- Health: `green`
+- Current milestone: SA baseline complete — ready for domain-architecture handoff
+- Next milestone: Domain repo creation and DA engagement
+- Key cross-domain risks:
+  - Inventory reservation atomicity at order placement (ecommerce ↔ inventory ↔ order dependency)
+  - HCL Commerce integration complexity may delay Phase 1 ecommerce domain
+  - Store associate hardware procurement is external dependency for party-role domain
+
+## Roadmap
+
+### Milestones
+
+- `M1-sa-baseline`: Month 0: Solution architecture baseline complete (this milestone — done)
+- `M2-domain-repos`: Month 1: Domain repos created; DA engagement starts across all 5 domains
+- `M3-mvp-launch`: Month 4: Phase 1 MVP live across 20-25 stores
+- `M4-scale`: Month 7: Phase 2 scale to 50%+ of stores
+- `M5-advanced`: Month 11: Phase 3 advanced features (scheduled pickup, curbside)
+- `M6-optimize`: Month 14: Phase 4 optimization and returns processing
+
+### Cross-Domain Dependencies
+
+- `ecommerce` depends on `inventory`: real-time inventory availability API must exist before product display can show stock — target M3
+- `order` depends on `inventory`: atomic inventory reservation required at order placement — target M3
+- `party-role` depends on `order`: store associate interface requires order status feed — target M3
+- `notification` depends on `order`: pickup-ready event must be emitted by order domain — target M3
+
+### Domain Roll-Up (Links)
+
+- `ecommerce`: https://github.com/tincanlab/domain-bopis-ecommerce/blob/main/ROADMAP.md (pending repo creation)
+- `inventory`: https://github.com/tincanlab/domain-bopis-inventory/blob/main/ROADMAP.md (pending repo creation)
+- `order`: https://github.com/tincanlab/domain-bopis-order/blob/main/ROADMAP.md (pending repo creation)
+- `party-role`: https://github.com/tincanlab/domain-bopis-party-role/blob/main/ROADMAP.md (pending repo creation)
+- `notification`: https://github.com/tincanlab/domain-bopis-notification/blob/main/ROADMAP.md (pending repo creation)
+
+## Implementation Targets (Developer Interface)
+
+Developers should implement against the solution's canonical artifacts and domain-owned artifacts:
+
+- `architecture/requirements/requirements.yml`
+- `architecture/solution/architecture-design.yml`
+- `architecture/solution/interface-contracts.yml`
+- `architecture/solution/domain-workstreams.yml`
+- Domain repos: `ROADMAP.md` and canonical domain design artifacts (per domain repo conventions)
+
+## Decision Log
+
+- 2026-03-06: Microservices with API-first and event-driven design selected: [ADR-001](architecture/solution/adr/adr-001-architecture-patterns.md)
+- 2026-03-06: Atomic inventory reservation with event-driven sync: [ADR-002](architecture/solution/adr/adr-002-inventory-sync-strategy.md)
+- 2026-03-06: QR code only for customer verification: [ADR-003](architecture/solution/adr/adr-003-verification-strategy.md)
+
+---
 
 ## Phased Implementation Plan
 
