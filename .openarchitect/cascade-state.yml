@@ -11,7 +11,7 @@ layers:
       - "architecture/requirements/requirements_report.md"
       - "architecture/requirements/stakeholders.yml"
   solution_architecture:
-    status: proposed
+    status: in_progress
     artifact_refs:
       - "architecture/solution/architecture-design.yml"
       - "architecture/solution/interface-contracts.yml"

@@ -11,7 +11,12 @@ workstreams:
     domain_name: Ecommerce Domain
     oda_component_name: Product Catalog Management
     name: BOPIS - Ecommerce Domain Engagement
+    workstream_entrypoint: DOMAIN.md
+    workstream_git_ref: main
+    workstream_repo_url: https://github.com/tincanlab/domain-bopis-ecommerce
+    workstream_path: null
     domain_repo_url: https://github.com/tincanlab/domain-bopis-ecommerce
+    domain_entrypoint: DOMAIN.md
     tmfc_component_id: TMFC001
     handoff_ref: architecture/solution/domain-handoffs/ecommerce/component-specs.yml
     status: active
@@ -36,7 +41,12 @@ workstreams:
     domain_name: Inventory Domain
     oda_component_name: Product Inventory Management
     name: BOPIS - Inventory Domain Engagement
+    workstream_entrypoint: DOMAIN.md
+    workstream_git_ref: main
+    workstream_repo_url: https://github.com/tincanlab/domain-bopis-inventory
+    workstream_path: null
     domain_repo_url: https://github.com/tincanlab/domain-bopis-inventory
+    domain_entrypoint: DOMAIN.md
     tmfc_component_id: TMFC005
     handoff_ref: architecture/solution/domain-handoffs/inventory/component-specs.yml
     status: active
@@ -59,7 +69,12 @@ workstreams:
     domain_name: Order Domain
     oda_component_name: Order Management
     name: BOPIS - Order Domain Engagement
+    workstream_entrypoint: DOMAIN.md
+    workstream_git_ref: main
+    workstream_repo_url: https://github.com/tincanlab/domain-bopis-order
+    workstream_path: null
     domain_repo_url: https://github.com/tincanlab/domain-bopis-order
+    domain_entrypoint: DOMAIN.md
     tmfc_component_id: TMFC003
     handoff_ref: architecture/solution/domain-handoffs/order/component-specs.yml
     status: active
@@ -83,15 +98,20 @@ workstreams:
     domain_name: Party Role Management Domain
     oda_component_name: Party Role Management
     name: BOPIS - Party Role Management Domain Engagement
+    workstream_entrypoint: DOMAIN.md
+    workstream_git_ref: main
+    workstream_repo_url: https://github.com/tincanlab/domain-bopis-party-role
+    workstream_path: null
     domain_repo_url: https://github.com/tincanlab/domain-bopis-party-role
-    tmfc_component_id: TMFC006
+    domain_entrypoint: DOMAIN.md
+    tmfc_component_id: TMFC028
     handoff_ref: architecture/solution/domain-handoffs/party-role/component-specs.yml
     status: active
     owner: Engineering Team
     metadata:
       priority: high
       milestone: 2025-q2
-      tmf_api: TMF629
+      tmf_api: TMF669
       tmf_api_name: Party Role Management API
       tmf_api_resources:
         - PartyRole
@@ -107,7 +127,12 @@ workstreams:
     domain_name: Notification Domain
     oda_component_name: Notification Service
     name: BOPIS - Notification Domain Engagement
+    workstream_entrypoint: DOMAIN.md
+    workstream_git_ref: main
+    workstream_repo_url: https://github.com/tincanlab/domain-bopis-notification
+    workstream_path: null
     domain_repo_url: https://github.com/tincanlab/domain-bopis-notification
+    domain_entrypoint: DOMAIN.md
     tmfc_component_id: "N/A"
     handoff_ref: architecture/solution/domain-handoffs/notification/component-specs.yml
     status: active

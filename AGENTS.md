@@ -74,4 +74,4 @@ This solution decomposes into 5 domains:
 - Workspace/context registry not used - all artifacts local to this repo
 - Enterprise validation skipped (enterprise-graph MCP unavailable)
 - TMF alignment MCP-verified (2026-03-06): TMFC001, TMFC003, TMFC005, TMFC028; TMF620, TMF622, TMF637, TMF669, TMF687
-- Corrections applied from MCP run: TMFC006→TMFC028 (party-role domain), TMF629→TMF669 (party-role API), TMF620→TMF622 (order API), TMF687 added for inventory stock reservation
+- Corrections applied from MCP run: TMFC006->TMFC028 (party-role domain), TMF629->TMF669 (party-role API), TMF620->TMF622 (order API), TMF687 added for inventory stock reservation

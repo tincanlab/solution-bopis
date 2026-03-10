@@ -1,0 +1,12 @@
+version: "1.0"
+
+initiatives:
+  - initiative_id: init-bopis
+    name: Buy Online, Pick Up In Store
+    solution_repo_url: https://github.com/tincanlab/solution-bopis
+    solution_entrypoint: SOLUTION.md
+    status: active
+    owner: Zhong
+    metadata:
+      priority: high
+      target_release: "2025-Q2"

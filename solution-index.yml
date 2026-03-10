@@ -45,7 +45,7 @@ domains:
         agents_md: AGENTS.md
         cascade_state: .openarchitect/cascade-state.yml
     tmf_apis:
-      - api_id: TMF620
+      - api_id: TMF622
         implementation_repo_url: https://github.com/tincanlab/domain-bopis-order
   - domain_key: party-role
     oda_component: Party Role Management
@@ -57,7 +57,7 @@ domains:
         agents_md: AGENTS.md
         cascade_state: .openarchitect/cascade-state.yml
     tmf_apis:
-      - api_id: TMF629
+      - api_id: TMF669
         implementation_repo_url: https://github.com/tincanlab/domain-bopis-party-role
   - domain_key: notification
     oda_component: Notification Service

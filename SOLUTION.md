@@ -4,15 +4,14 @@ Solution architecture repo for the Buy Online, Pick Up In Store (BOPIS) initiati
 
 ## Read First
 
-1. This file — solution context and navigation
-2. [AGENTS.md](AGENTS.md) — repo-specific agent instructions
-3. [solution-index.yml](solution-index.yml) — machine-authoritative scope manifest
+1. This file - solution context and navigation
+2. [AGENTS.md](AGENTS.md) - repo-specific agent instructions
+3. [solution-index.yml](solution-index.yml) - machine-authoritative scope manifest
 4. For point lookups by `domain_key`, prefer `python scripts/domain_info_cli.py <domain_key>` instead of reading the full `solution-index.yml`.
 
 ## Parent
 
-- [ENTERPRISE.md](<enterprise-repo-url>/blob/main/ENTERPRISE.md)
-- If enterprise level is absent, replace with `Not applicable`.
+- Not applicable
 
 ## Critical File Contract
 
@@ -33,6 +32,8 @@ solution-index.yml                                 <- canonical machine-readable
 scripts/
 `-- domain_info_cli.py                             <- preferred domain lookup interface for agents and automation
 architecture/
+|-- portfolio/
+|   `-- initiatives.yml                            <- initiative selector catalog
 |-- requirements/
 |   |-- requirements.yml                           <- requirements baseline
 |   |-- requirements.md                            <- narrative requirements
@@ -59,6 +60,7 @@ architecture/
 ## Canonical Artifacts
 
 - `solution-index.yml` (machine-authoritative solution scope and repo mapping)
+- `architecture/portfolio/initiatives.yml` (initiative routing selector)
 - `architecture/solution/architecture-design.yml` (structured solution architecture)
 - `architecture/solution/interface-contracts.yml` (canonical interfaces)
 - `architecture/solution/domain-workstreams.yml` (workstream routing selector)
@@ -72,7 +74,9 @@ architecture/
 
 ## Routing
 
-`WORKSTREAM_ID` → `architecture/solution/domain-workstreams.yml` → `domain_id` + `workstream_entrypoint` + `workstream_git_ref`
+`INITIATIVE_ID` -> `architecture/portfolio/initiatives.yml` -> `solution_repo_url` + `solution_entrypoint`
+
+`WORKSTREAM_ID` -> `architecture/solution/domain-workstreams.yml` -> `domain_id` + `workstream_entrypoint` + `workstream_git_ref`
 
 ## SA Container Context
 
@@ -92,7 +96,7 @@ If `.openarchitect/active-initiative.json` is missing, explicitly state that ini
 ## Scope
 
 - **Solution key**: bopis
-- **Owners**: SA: Zhong, Domains: Ecommerce, Inventory, Order, Fulfillment, Notification
+- **Owners**: SA: Zhong, Domains: Ecommerce, Inventory, Order, Party Role, Notification
 - **Initiative**: init-bopis - Buy Online, Pick Up In Store
 - **Status**: Solution Architecture Design in Progress
 
@@ -101,11 +105,11 @@ If `.openarchitect/active-initiative.json` is missing, explicitly state that ini
 This solution decomposes into 5 domains:
 
 | Domain | ODA Component | TMF APIs | Repo | Status |
-|---------|---------------|------------|--------|--------|
+|---------|---------------|----------|------|--------|
 | Ecommerce | Product Catalog Management | TMF620 (Product, ProductOffering) | TBD | To be created |
 | Inventory | Product Inventory Management | TMF637 (ProductInventory) | TBD | To be created |
-| Order | Order Management | TMF620 (CustomerOrder) | TBD | To be created |
-| Party Role Management | Party Role Management | TMF629 (PartyRole) | TBD | To be created |
+| Order | Order Management | TMF622 (ProductOrder) | TBD | To be created |
+| Party Role Management | Party Role Management | TMF669 (PartyRole) | TBD | To be created |
 | Notification | Notification Service | Custom | TBD | To be created |
 
 ## Adjacent Entrypoints
@@ -118,6 +122,7 @@ This solution decomposes into 5 domains:
 - [Requirements Baseline](architecture/requirements/requirements.md)
 - [Requirements Report](architecture/requirements/requirements_report.md)
 - [Stakeholder Map](architecture/requirements/stakeholders.yml)
+- [Initiatives Selector](architecture/portfolio/initiatives.yml)
 - [Architecture Design](architecture/solution/architecture-design.yml)
 - [Interface Contracts](architecture/solution/interface-contracts.yml)
 - [Domain Workstreams](architecture/solution/domain-workstreams.yml)
