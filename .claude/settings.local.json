@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python c:/Projects/solution-bopis/.codex/skills/openarchitect/quick-start/scripts/run_quick_start.py --root c:/Projects/solution-bopis)",
+      "Bash(mkdir -p src/services/catalog src/services/inventory src/services/order src/services/notification src/services/party-role src/api/product src/api/store src/api/inventory src/api/order src/api/party-role src/api/pickup src/api/notification src/events/inventory src/events/order src/providers)",
+      "Bash(touch src/services/catalog/.gitkeep src/services/inventory/.gitkeep src/services/order/.gitkeep src/services/notification/.gitkeep src/services/party-role/.gitkeep src/api/product/.gitkeep src/api/store/.gitkeep src/api/inventory/.gitkeep src/api/order/.gitkeep src/api/party-role/.gitkeep src/api/pickup/.gitkeep src/api/notification/.gitkeep src/events/inventory/.gitkeep src/events/order/.gitkeep src/providers/.gitkeep)",
+      "mcp__tmf-mcp__postgres_health",
+      "mcp__tmf-mcp__search_oda_components",
+      "mcp__tmf-mcp__search_api_specs",
+      "mcp__tmf-mcp__search_etom_processes",
+      "mcp__tmf-mcp__component_details",
+      "Bash(python c:/Projects/solution-bopis/.codex/skills/openarchitect/quick-start/scripts/run_quick_start.py --root c:/Projects/solution-bopis --profile sa)"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "tmf-mcp",
+    "postgres-mcp"
+  ]
+}

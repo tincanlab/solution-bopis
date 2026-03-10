@@ -26,7 +26,7 @@ interfaces:
       availability: "99.5%"
     tmf_alignment:
       api_id: "TMF620"
-      confidence: "local_knowledge"
+      confidence: "mcp_verified"
     cross_workspace:
       provider_workspace_id: ""
       provider_domain: "Ecommerce"
@@ -60,12 +60,14 @@ interfaces:
       availability: "99.9%"
     tmf_alignment:
       api_id: "TMF637"
-      confidence: "local_knowledge"
+      confidence: "mcp_verified"
+      additional_apis: ["TMF687"]
+      notes: "TMF637 for product inventory lifecycle; TMF687 reserveProductStock directly maps to BOPIS atomic reservation use case"
     cross_workspace:
       provider_workspace_id: ""
       provider_domain: "Inventory"
       consumer_workspace_ids: []
-      consumer_domains: ["Order", "Fulfillment"]
+      consumer_domains: ["Order", "Party Role Management"]
     notes: "Atomic inventory reservation with rollback capability. Consumed by Order domain for order placement"
 
   - id: "ifc-inventory-sync-event"
@@ -142,14 +144,14 @@ interfaces:
       latency_p95_ms: 200
       availability: "99.5%"
     tmf_alignment:
-      api_id: "TMF620"
-      confidence: "local_knowledge"
+      api_id: "TMF622"
+      confidence: "mcp_verified"
     cross_workspace:
       provider_workspace_id: ""
       provider_domain: "Order"
       consumer_workspace_ids: []
-      consumer_domains: ["Ecommerce", "Fulfillment"]
-    notes: "BOPIS order lifecycle management. Integrates with HCL Commerce checkout"
+      consumer_domains: ["Ecommerce", "Party Role Management"]
+    notes: "BOPIS order lifecycle management using TMF622 Product Ordering API. TMF620 is catalog-only; TMF622 is the correct API for order placement. Integrates with HCL Commerce checkout"
 
   - id: "ifc-order-status-event"
     type: "event"
@@ -214,14 +216,14 @@ interfaces:
       latency_p95_ms: 200
       availability: "99.5%"
     tmf_alignment:
-      api_id: "TMF629"
+      api_id: "TMF669"
       confidence: "mcp_verified"
     cross_workspace:
       provider_workspace_id: ""
       provider_domain: "Party Role Management"
       consumer_workspace_ids: []
       consumer_domains: ["Order"]
-    notes: "Store associate interface for order fulfillment"
+    notes: "Store associate interface for order fulfillment. TMF669 Party Role Management is the correct API; TMF629 is Customer Management (corrected from prior local_knowledge entry)"
 
   - id: "ifc-pickup-api"
     type: "api"

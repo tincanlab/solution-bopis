@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo list tincanlab --json name,url --limit 20)",
+      "Bash(where gh)",
+      "Bash(ls c:/Projects/worker_container/.env*)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}

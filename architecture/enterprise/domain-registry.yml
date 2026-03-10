@@ -82,7 +82,7 @@ domains:
         - Order state transitions must be idempotent.
         - All state changes emit lifecycle events.
     metadata:
-      oda_component_name: Order Management
+      oda_component_name: Product Order Delivery Orchestration And Management
       tmfc_component_id: TMFC003
 
   - domain_id: party-role
@@ -109,8 +109,9 @@ domains:
         - Pickup verification must be secure and auditable.
         - Integration with POS must support transaction recording.
     metadata:
-      oda_component_name: Party Role Management
-      tmfc_component_id: TMFC006
+      oda_component_name: Party Management
+      tmfc_component_id: TMFC028
+      notes: "MCP-verified 2026-03-06. TMFC006 is Service Catalog Management (incorrect). TMFC028 PartyManagement is the best available ODA match for in-store associate party role operations."
 
   - domain_id: notification
     name: Notification Domain

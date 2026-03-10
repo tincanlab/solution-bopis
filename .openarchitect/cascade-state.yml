@@ -11,16 +11,16 @@ layers:
       - "architecture/requirements/requirements_report.md"
       - "architecture/requirements/stakeholders.yml"
   solution_architecture:
-    status: in_progress
+    status: proposed
     artifact_refs:
       - "architecture/solution/architecture-design.yml"
       - "architecture/solution/interface-contracts.yml"
-      - "architecture/domains/ecommerce/component-specs.yml"
-      - "architecture/domains/inventory/component-specs.yml"
-      - "architecture/domains/order/component-specs.yml"
-      - "architecture/domains/party-role/component-specs.yml"
-      - "architecture/domains/notification/component-specs.yml"
-      - "architecture/solution/domain-engagements.yml"
+      - "architecture/solution/domain-handoffs/ecommerce/component-specs.yml"
+      - "architecture/solution/domain-handoffs/inventory/component-specs.yml"
+      - "architecture/solution/domain-handoffs/order/component-specs.yml"
+      - "architecture/solution/domain-handoffs/party-role/component-specs.yml"
+      - "architecture/solution/domain-handoffs/notification/component-specs.yml"
+      - "architecture/solution/domain-workstreams.yml"
       - "architecture/solution/repo-plan.yml"
       - "architecture/solution/repo-creation-request.yml"
       - "architecture/solution/domain-api-validation-report.md"
@@ -31,5 +31,5 @@ layers:
     status: not_started
     artifact_refs: []
 
-last_updated: "2025-03-01T01:00:00Z"
+last_updated: "2026-03-06T00:00:00Z"
 updated_by: "solution-architecture"

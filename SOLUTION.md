@@ -7,6 +7,7 @@ Solution architecture repo for the Buy Online, Pick Up In Store (BOPIS) initiati
 1. This file — solution context and navigation
 2. [AGENTS.md](AGENTS.md) — repo-specific agent instructions
 3. [solution-index.yml](solution-index.yml) — machine-authoritative scope manifest
+4. For point lookups by `domain_key`, prefer `python scripts/domain_info_cli.py <domain_key>` instead of reading the full `solution-index.yml`.
 
 ## Parent
 
@@ -28,7 +29,9 @@ SOLUTION.md                                        <- you are here
 AGENTS.md                                          <- repo-specific agent instructions
 VISION.md                                          <- solution intent and target outcomes
 ROADMAP.md                                         <- implementation phases
-solution-index.yml                                 <- machine-authoritative scope manifest
+solution-index.yml                                 <- canonical machine-readable scope manifest; for single-domain lookup prefer `python scripts/domain_info_cli.py <domain_key>`
+scripts/
+`-- domain_info_cli.py                             <- preferred domain lookup interface for agents and automation
 architecture/
 |-- requirements/
 |   |-- requirements.yml                           <- requirements baseline
@@ -60,6 +63,12 @@ architecture/
 - `architecture/solution/interface-contracts.yml` (canonical interfaces)
 - `architecture/solution/domain-workstreams.yml` (workstream routing selector)
 - `architecture/requirements/requirements.yml` (requirements baseline)
+
+## Agent Retrieval Guidance
+
+- `solution-index.yml` remains the canonical source of truth.
+- For retrieval of a single domain by `domain_key`, agents should prefer `python scripts/domain_info_cli.py <domain_key>` rather than loading the entire `solution-index.yml`.
+- Read `solution-index.yml` directly only when validating schema, inspecting multiple domains, or making structural edits.
 
 ## Routing
 

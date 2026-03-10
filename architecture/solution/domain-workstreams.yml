@@ -3,9 +3,9 @@ workspace_id: ""
 initiative_id: "init-bopis"
 generated_at_utc: "2025-02-28T00:00:00Z"
 generated_by: "solution-architecture"
-engagements:
-  - engagement_id: eng-init-bopis-ecommerce
-    engagement_uuid: 550e8400-e29b-41d4-a716-446655440001
+workstreams:
+  - workstream_id: ws-init-bopis-ecommerce
+    workstream_uuid: 550e8400-e29b-41d4-a716-446655440001
     initiative_id: init-bopis
     domain_id: ecommerce
     domain_name: Ecommerce Domain
@@ -13,7 +13,7 @@ engagements:
     name: BOPIS - Ecommerce Domain Engagement
     domain_repo_url: https://github.com/tincanlab/domain-bopis-ecommerce
     tmfc_component_id: TMFC001
-    handoff_ref: architecture/domains/ecommerce/component-specs.yml
+    handoff_ref: architecture/solution/domain-handoffs/ecommerce/component-specs.yml
     status: active
     owner: Engineering Team
     metadata:
@@ -29,8 +29,8 @@ engagements:
       tmf_api_confidence: mcp_verified
       notes: TMF620 is a multi-domain API serving both Ecommerce and Order domains with different resources
 
-  - engagement_id: eng-init-bopis-inventory
-    engagement_uuid: 660e8400-e29b-41d4-a716-446655440002
+  - workstream_id: ws-init-bopis-inventory
+    workstream_uuid: 660e8400-e29b-41d4-a716-446655440002
     initiative_id: init-bopis
     domain_id: inventory
     domain_name: Inventory Domain
@@ -38,7 +38,7 @@ engagements:
     name: BOPIS - Inventory Domain Engagement
     domain_repo_url: https://github.com/tincanlab/domain-bopis-inventory
     tmfc_component_id: TMFC005
-    handoff_ref: architecture/domains/inventory/component-specs.yml
+    handoff_ref: architecture/solution/domain-handoffs/inventory/component-specs.yml
     status: active
     owner: Engineering Team
     metadata:
@@ -52,8 +52,8 @@ engagements:
       tmf_api_confidence: mcp_verified
       notes: Inventory synchronization uses custom event contracts (not a TMF API resource)
 
-  - engagement_id: eng-init-bopis-order
-    engagement_uuid: 770e8400-e29b-41d4-a716-446655440003
+  - workstream_id: ws-init-bopis-order
+    workstream_uuid: 770e8400-e29b-41d4-a716-446655440003
     initiative_id: init-bopis
     domain_id: order
     domain_name: Order Domain
@@ -61,7 +61,7 @@ engagements:
     name: BOPIS - Order Domain Engagement
     domain_repo_url: https://github.com/tincanlab/domain-bopis-order
     tmfc_component_id: TMFC003
-    handoff_ref: architecture/domains/order/component-specs.yml
+    handoff_ref: architecture/solution/domain-handoffs/order/component-specs.yml
     status: active
     owner: Engineering Team
     metadata:
@@ -76,8 +76,8 @@ engagements:
       tmf_api_confidence: mcp_verified
       notes: TMF620 is a multi-domain API serving both Ecommerce and Order domains with different resources
 
-  - engagement_id: eng-init-bopis-party-role
-    engagement_uuid: 880e8400-e29b-41d4-a716-446655440004
+  - workstream_id: ws-init-bopis-party-role
+    workstream_uuid: 880e8400-e29b-41d4-a716-446655440004
     initiative_id: init-bopis
     domain_id: party-role
     domain_name: Party Role Management Domain
@@ -85,7 +85,7 @@ engagements:
     name: BOPIS - Party Role Management Domain Engagement
     domain_repo_url: https://github.com/tincanlab/domain-bopis-party-role
     tmfc_component_id: TMFC006
-    handoff_ref: architecture/domains/party-role/component-specs.yml
+    handoff_ref: architecture/solution/domain-handoffs/party-role/component-specs.yml
     status: active
     owner: Engineering Team
     metadata:
@@ -100,8 +100,8 @@ engagements:
       tmf_api_confidence: mcp_verified
       notes: Previously referred to as "Fulfillment" domain in earlier artifacts. Pickup verification uses custom QR code contracts (not a TMF API resource)
 
-  - engagement_id: eng-init-bopis-notification
-    engagement_uuid: 990e8400-e29b-41d4-a716-446655440005
+  - workstream_id: ws-init-bopis-notification
+    workstream_uuid: 990e8400-e29b-41d4-a716-446655440005
     initiative_id: init-bopis
     domain_id: notification
     domain_name: Notification Domain
@@ -109,7 +109,7 @@ engagements:
     name: BOPIS - Notification Domain Engagement
     domain_repo_url: https://github.com/tincanlab/domain-bopis-notification
     tmfc_component_id: "N/A"
-    handoff_ref: architecture/domains/notification/component-specs.yml
+    handoff_ref: architecture/solution/domain-handoffs/notification/component-specs.yml
     status: active
     owner: Engineering Team
     metadata:
@@ -126,6 +126,6 @@ engagements:
 
 execution:
   state: not_started
-  processed_engagements: []
-  skipped_engagements: []
-notes: "Domain engagements catalog for BOPIS initiative. All 5 domains are active. 4 of 5 domains have MCP-verified TMF ODA component alignment (Ecommerce, Inventory, Order, Party Role). TMF620 is a multi-domain API serving both Ecommerce and Order domains with different resources. Notification domain is custom implementation. Downstream domain-architecture skill should use this as the authoritative engagement selector catalog."
+  processed_workstreams: []
+  skipped_workstreams: []
+notes: "Domain workstreams catalog for BOPIS initiative. All 5 domains are active. 4 of 5 domains have MCP-verified TMF ODA component alignment (Ecommerce, Inventory, Order, Party Role). TMF620 is a multi-domain API serving both Ecommerce and Order domains with different resources. Notification domain is custom implementation. Downstream domain-architecture skill should use this as the authoritative workstream selector catalog."

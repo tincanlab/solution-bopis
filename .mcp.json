@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "tmf-mcp": {
+      "type": "http",
+      "url": "http://localhost:8000/mcp"
+    },
+    "postgres-mcp": {
+      "type": "http",
+      "url": "http://localhost:9000/mcp"
+    }
+  }
+}
