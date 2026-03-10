@@ -11,7 +11,7 @@ Solution architecture repo for the Buy Online, Pick Up In Store (BOPIS) initiati
 
 ## Parent
 
-- Not applicable
+- [ENTERPRISE.md](https://github.com/tincanlab/ea-repo/blob/main/ENTERPRISE.md)
 
 ## Critical File Contract
 
