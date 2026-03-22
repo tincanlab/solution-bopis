@@ -7,7 +7,7 @@ workstreams:
   - workstream_id: ws-init-bopis-ecommerce
     workstream_uuid: 550e8400-e29b-41d4-a716-446655440001
     initiative_id: init-bopis
-    domain_id: ecommerce
+    domain_id: tmfc001
     domain_name: Ecommerce Domain
     oda_component_name: Product Catalog Management
     name: BOPIS - Ecommerce Domain Engagement
@@ -37,7 +37,7 @@ workstreams:
   - workstream_id: ws-init-bopis-inventory
     workstream_uuid: 660e8400-e29b-41d4-a716-446655440002
     initiative_id: init-bopis
-    domain_id: inventory
+    domain_id: tmfc005
     domain_name: Inventory Domain
     oda_component_name: Product Inventory Management
     name: BOPIS - Inventory Domain Engagement
@@ -65,7 +65,7 @@ workstreams:
   - workstream_id: ws-init-bopis-order
     workstream_uuid: 770e8400-e29b-41d4-a716-446655440003
     initiative_id: init-bopis
-    domain_id: order
+    domain_id: tmfc003
     domain_name: Order Domain
     oda_component_name: Order Management
     name: BOPIS - Order Domain Engagement
@@ -94,7 +94,7 @@ workstreams:
   - workstream_id: ws-init-bopis-party-role
     workstream_uuid: 880e8400-e29b-41d4-a716-446655440004
     initiative_id: init-bopis
-    domain_id: party-role
+    domain_id: tmfc028
     domain_name: Party Role Management Domain
     oda_component_name: Party Role Management
     name: BOPIS - Party Role Management Domain Engagement
