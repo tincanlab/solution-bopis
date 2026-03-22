@@ -1,0 +1,46 @@
+request_id: repo-req-20250228-0001
+executed_at_utc: "2026-03-22T00:00:00Z"
+executed_by: operator
+execution:
+  state: completed
+created_repos:
+  - owner: tincanlab
+    name: domain-ecommerce
+    html_url: https://github.com/tincanlab/domain-ecommerce
+  - owner: tincanlab
+    name: domain-inventory
+    html_url: https://github.com/tincanlab/domain-inventory
+  - owner: tincanlab
+    name: domain-order
+    html_url: https://github.com/tincanlab/domain-order
+  - owner: tincanlab
+    name: domain-party-role
+    html_url: https://github.com/tincanlab/domain-party-role
+  - owner: tincanlab
+    name: domain-notification
+    html_url: https://github.com/tincanlab/domain-notification
+mapped_repos:
+  - owner: tincanlab
+    name: domain-ecommerce
+    repo_url: https://github.com/tincanlab/domain-ecommerce
+    is_default: false
+  - owner: tincanlab
+    name: domain-inventory
+    repo_url: https://github.com/tincanlab/domain-inventory
+    is_default: false
+  - owner: tincanlab
+    name: domain-order
+    repo_url: https://github.com/tincanlab/domain-order
+    is_default: false
+  - owner: tincanlab
+    name: domain-party-role
+    repo_url: https://github.com/tincanlab/domain-party-role
+    is_default: false
+  - owner: tincanlab
+    name: domain-notification
+    repo_url: https://github.com/tincanlab/domain-notification
+    is_default: false
+failures: []
+evidence:
+  github_checks: []
+  workspace_repo_mappings: []

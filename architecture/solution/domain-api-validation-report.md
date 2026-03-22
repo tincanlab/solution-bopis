@@ -91,7 +91,7 @@ Domain names and TMF API mappings have been validated against existing TMF-MCP v
 | Confidence Level | mcp_verified | ✅ |
 
 **TMF Evidence** (from tmf-validation-summary.md):
-- ODA Component: Party Role Management (TMFC006) - Fulfillment
+- ODA Component: Party Management (TMFC028) - Fulfillment
 - eTOM Processes: Manage Resource Order Fulfillment (1.5.5.8), Manage Customer Order Fulfillment (1.3.3.12), Manage Fulfillment (1.7.10.6), Deliver Customer Order Carry Through (1.3.19.3.2), Accept Business Partner Order (1.6.8.4.2)
 - TMF Open API: TMF629 Party Role
 
@@ -126,11 +126,11 @@ Domain names and TMF API mappings have been validated against existing TMF-MCP v
 
 | Repo Key | Repo Name | Domain | TMF ODA Component | TMF API | Validation |
 |-----------|-----------|---------|-------------------|----------|------------|
-| domain-ecommerce | tincanlab/domain-bopis-ecommerce | ecommerce | Product Catalog Management (TMFC001) | TMF620 | ✅ Valid |
-| domain-inventory | tincanlab/domain-bopis-inventory | inventory | Product Inventory Management (TMFC005) | TMF637 | ✅ Valid |
-| domain-order | tincanlab/domain-bopis-order | order | Order Management (TMFC003) | TMF620 | ✅ Valid |
-| domain-party-role | tincanlab/domain-bopis-party-role | party-role | Party Role Management (TMFC006) | TMF629 | ✅ Valid |
-| domain-notification | tincanlab/domain-bopis-notification | notification | Custom (Notification Service) | None | ⚠️ Custom |
+| domain-ecommerce | tincanlab/domain-ecommerce | ecommerce | Product Catalog Management (TMFC001) | TMF620 | ✅ Valid |
+| domain-inventory | tincanlab/domain-inventory | inventory | Product Inventory Management (TMFC005) | TMF637 | ✅ Valid |
+| domain-order | tincanlab/domain-order | order | Order Management (TMFC003) | TMF620 | ✅ Valid |
+| domain-party-role | tincanlab/domain-party-role | party-role | Party Management (TMFC028) | TMF629 | ✅ Valid |
+| domain-notification | tincanlab/domain-notification | notification | Custom (Notification Service) | None | ⚠️ Custom |
 
 **Validation Result**: ✅ **All 5 domain repos are correctly mapped**
 
@@ -145,7 +145,7 @@ Domain names and TMF API mappings have been validated against existing TMF-MCP v
 | ecommerce | Product Catalog Management | TMFC001 | CoreCommerce | mcp_verified ✅ |
 | inventory | Product Inventory Management | TMFC005 | CoreCommerce | mcp_verified ✅ |
 | order | Order Management | TMFC003 | Fulfillment | mcp_verified ✅ |
-| party-role | Party Role Management | TMFC006 | Fulfillment | mcp_verified ✅ |
+| party-role | Party Management | TMFC028 | PartyManagement | mcp_verified ✅ |
 | notification | Notification Service | N/A | N/A | local_knowledge ⚠️ |
 
 **Coverage**: 4 of 5 domains (80%) have MCP-verified TMF ODA alignment
@@ -182,11 +182,11 @@ Domain names and TMF API mappings have been validated against existing TMF-MCP v
 
 | Domain Key | Proposed Repo Name | TMF Compliance | Naming Convention |
 |------------|-------------------|----------------|-------------------|
-| ecommerce | tincanlab/domain-bopis-ecommerce | ✅ | domain-<solution>-<domain> |
-| inventory | tincanlab/domain-bopis-inventory | ✅ | domain-<solution>-<domain> |
-| order | tincanlab/domain-bopis-order | ✅ | domain-<solution>-<domain> |
-| party-role | tincanlab/domain-bopis-party-role | ✅ | domain-<solution>-<domain> |
-| notification | tincanlab/domain-bopis-notification | ✅ | domain-<solution>-<domain> |
+| ecommerce | tincanlab/domain-ecommerce | ✅ | domain-<domain> |
+| inventory | tincanlab/domain-inventory | ✅ | domain-<domain> |
+| order | tincanlab/domain-order | ✅ | domain-<domain> |
+| party-role | tincanlab/domain-party-role | ✅ | domain-<domain> |
+| notification | tincanlab/domain-notification | ✅ | domain-<domain> |
 
 **Naming Convention**: ✅ **Consistent across all repos**
 
@@ -229,3 +229,4 @@ Monitor TMF catalog for future Notification ODA components. When available, upda
 1. Proceed with repo-creation skill execution
 2. Create domain-engagements.yml for DA routing
 3. Update solution-index.yml with repo URLs after creation
+

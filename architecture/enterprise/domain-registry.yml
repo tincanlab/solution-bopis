@@ -1,13 +1,15 @@
 # EA authoritative domain governance map.
-# Enterprise domain registry for BOPIS initiative.
+# Enterprise domain registry read-only copy for BOPIS initiative.
 
 version: "1.0"
 enterprise_id: ent-tincanlab
 domains:
-  - domain_id: ecommerce
+  - domain_id: tmfc001
     name: Ecommerce Domain
     owner: domain-arch-ecommerce
     status: active
+    domain_repo_url: https://github.com/tincanlab/domain-ecommerce
+    domain_entrypoint: DOMAIN.md
     capabilities:
       - capability_id: cap-product-catalog
         name: Manage product catalog and store location data
@@ -31,10 +33,12 @@ domains:
       oda_component_name: Product Catalog Management
       tmfc_component_id: TMFC001
 
-  - domain_id: inventory
+  - domain_id: tmfc005
     name: Inventory Domain
     owner: domain-arch-inventory
     status: active
+    domain_repo_url: https://github.com/tincanlab/domain-inventory
+    domain_entrypoint: DOMAIN.md
     capabilities:
       - capability_id: cap-inventory-management
         name: Manage product inventory across stores
@@ -58,10 +62,12 @@ domains:
       oda_component_name: Product Inventory Management
       tmfc_component_id: TMFC005
 
-  - domain_id: order
+  - domain_id: tmfc003
     name: Order Domain
     owner: domain-arch-order
     status: active
+    domain_repo_url: https://github.com/tincanlab/domain-order
+    domain_entrypoint: DOMAIN.md
     capabilities:
       - capability_id: cap-order-lifecycle
         name: Manage BOPIS order lifecycle from placement to completion
@@ -85,10 +91,12 @@ domains:
       oda_component_name: Product Order Delivery Orchestration And Management
       tmfc_component_id: TMFC003
 
-  - domain_id: party-role
+  - domain_id: tmfc028
     name: Party Role Management Domain
     owner: domain-arch-party-role
     status: active
+    domain_repo_url: https://github.com/tincanlab/domain-party-role
+    domain_entrypoint: DOMAIN.md
     capabilities:
       - capability_id: cap-store-fulfillment
         name: Manage store associate operations for order fulfillment
@@ -111,12 +119,14 @@ domains:
     metadata:
       oda_component_name: Party Management
       tmfc_component_id: TMFC028
-      notes: "MCP-verified 2026-03-06. TMFC006 is Service Catalog Management (incorrect). TMFC028 PartyManagement is the best available ODA match for in-store associate party role operations."
+      notes: "MCP-verified 2026-03-06. TMFC028 PartyManagement is the best available ODA match for in-store associate party role operations."
 
   - domain_id: notification
     name: Notification Domain
     owner: domain-arch-notification
     status: active
+    domain_repo_url: https://github.com/tincanlab/domain-notification
+    domain_entrypoint: DOMAIN.md
     capabilities:
       - capability_id: cap-customer-notification
         name: Send email and SMS notifications to customers

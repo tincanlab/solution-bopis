@@ -45,11 +45,11 @@ Authoring contract:
 
 ### Domain Roll-Up (Links)
 
-- `ecommerce`: https://github.com/tincanlab/domain-bopis-ecommerce/blob/main/ROADMAP.md (pending repo creation)
-- `inventory`: https://github.com/tincanlab/domain-bopis-inventory/blob/main/ROADMAP.md (pending repo creation)
-- `order`: https://github.com/tincanlab/domain-bopis-order/blob/main/ROADMAP.md (pending repo creation)
-- `party-role`: https://github.com/tincanlab/domain-bopis-party-role/blob/main/ROADMAP.md (pending repo creation)
-- `notification`: https://github.com/tincanlab/domain-bopis-notification/blob/main/ROADMAP.md (pending repo creation)
+- `ecommerce`: https://github.com/tincanlab/domain-ecommerce/blob/main/ROADMAP.md
+- `inventory`: https://github.com/tincanlab/domain-inventory/blob/main/ROADMAP.md
+- `order`: https://github.com/tincanlab/domain-order/blob/main/ROADMAP.md
+- `party-role`: https://github.com/tincanlab/domain-party-role/blob/main/ROADMAP.md
+- `notification`: https://github.com/tincanlab/domain-notification/blob/main/ROADMAP.md
 
 ## Implementation Targets (Developer Interface)
 
