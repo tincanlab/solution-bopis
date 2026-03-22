@@ -42,6 +42,8 @@ architecture/
 |   |-- architecture-design.yml                    <- solution architecture baseline
 |   |-- interface-contracts.yml                    <- canonical interfaces
 |   |-- domain-workstreams.yml                     <- workstream selector catalog (WORKSTREAM_ID routing)
+|   |-- repo-plan.yml                              <- domain repo plan
+|   |-- repo-creation-request.yml                  <- governed repo creation request
 |   |-- domain-handoffs/
 |   |   |-- ecommerce/component-specs.yml          <- SA-to-DA handoff
 |   |   |-- inventory/component-specs.yml          <- SA-to-DA handoff
@@ -126,3 +128,5 @@ This solution decomposes into 5 domains:
 - [Architecture Design](architecture/solution/architecture-design.yml)
 - [Interface Contracts](architecture/solution/interface-contracts.yml)
 - [Domain Workstreams](architecture/solution/domain-workstreams.yml)
+- [Repo Plan](architecture/solution/repo-plan.yml)
+- [Repo Creation Request](architecture/solution/repo-creation-request.yml)

@@ -11,7 +11,7 @@ layers:
       - "architecture/requirements/requirements_report.md"
       - "architecture/requirements/stakeholders.yml"
   solution_architecture:
-    status: in_progress
+    status: approved
     artifact_refs:
       - "architecture/solution/architecture-design.yml"
       - "architecture/solution/interface-contracts.yml"
@@ -25,11 +25,11 @@ layers:
       - "architecture/solution/repo-creation-request.yml"
       - "architecture/solution/domain-api-validation-report.md"
   domain_architecture:
-    status: not_started
+    status: in_progress
     artifact_refs: []
   implementation:
     status: not_started
     artifact_refs: []
 
-last_updated: "2026-03-06T00:00:00Z"
+last_updated: "2026-03-22T16:00:00Z"
 updated_by: "solution-architecture"

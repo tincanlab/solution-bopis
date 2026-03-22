@@ -1,7 +1,8 @@
 version: "0.1"
+domain: "inventory"
 domain_id: "inventory"
 domain_name: "Inventory Domain"
-description: "Inventory domain manages product inventory across stores, handles real-time reservations, and synchronizes inventory with external systems. Ensures inventory accuracy and prevents overselling across channels.
+description: "Inventory domain manages product inventory across stores, handles real-time reservations, and synchronizes inventory with external systems. Ensures inventory accuracy and prevents overselling across channels."
 
 owner:
   name: "Zhong"
@@ -27,7 +28,8 @@ components:
     dependencies:
       - interface_id: "ifc-inventory-system-integration"
         owner_domain: "external"
-        required_before: "phase-1"
+        required_before: "implementation"
+        component_id: "comp-external-inventory-system"
     nfr_slo:
       availability: "99.9%"
       latency_p95_ms: 100

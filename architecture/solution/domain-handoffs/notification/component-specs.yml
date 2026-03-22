@@ -1,7 +1,8 @@
 version: "0.1"
+domain: "notification"
 domain_id: "notification"
 domain_name: "Notification Domain"
-description: "Notification domain manages customer notifications for order readiness and pickup instructions via email and SMS.
+description: "Notification domain manages customer notifications for order readiness and pickup instructions via email and SMS."
 
 owner:
   name: "Zhong"
@@ -29,7 +30,8 @@ components:
     dependencies:
       - interface_id: "ifc-order-status-event"
         owner_domain: "order"
-        required_before: "phase-1"
+        required_before: "implementation"
+        component_id: "comp-order-management"
     nfr_slo:
       availability: "99.5%"
       latency_p95_ms: 500

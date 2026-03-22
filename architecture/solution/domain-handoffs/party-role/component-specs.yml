@@ -1,4 +1,5 @@
 version: "0.1"
+domain: "party-role"
 domain_id: "party-role"
 domain_name: "Party Role Management Domain"
 description: "Party Role Management domain manages store associate interface for order fulfillment and pickup processing. Handles QR code verification and order completion. Aligns with TMF ODA component TMF629 Party Role Management."
@@ -30,7 +31,8 @@ components:
     dependencies:
       - interface_id: "ifc-order-management-api"
         owner_domain: "order"
-        required_before: "phase-1"
+        required_before: "implementation"
+        component_id: "comp-order-management"
     nfr_slo:
       availability: "99.5%"
       latency_p95_ms: 200

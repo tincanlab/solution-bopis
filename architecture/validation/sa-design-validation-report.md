@@ -1,10 +1,10 @@
 # SA Design Validation Report
 
-- **Validated At**: 2026-03-01T01:18:57.766506+00:00
-- **Repository Root**: `/home/op/solution-bopis`
+- **Validated At**: 2026-03-22T16:04:25.334410+00:00
+- **Repository Root**: `/home/op/project`
 - **Overall Decision**: `pass`
 - **Strict Mode**: `False`
-- **Vertical**: `retail`
+- **Vertical**: `telco`
 - **Errors**: 0
 - **Warnings**: 2
 
@@ -14,5 +14,5 @@
 
 ## Findings
 
-- **WARNING** `domain_engagements_schema` (`architecture/solution/domain-engagements.yml`): Schema not found for domain-engagements.schema.json; schema validation skipped.
-- **WARNING** `ea_domain_registry_schema` (`architecture/enterprise/domain-registry.yml`): Schema not found for domain-registry.schema.json; schema validation skipped.
+- **WARNING** `telco_tmfc_component_id` (`architecture/solution/architecture-design.yml`): Domain `Notification Domain` is missing `tmfc_component_id`.
+- **WARNING** `telco_workstream_tmfc_component_id` (`architecture/solution/domain-workstreams.yml`): Workstream `ws-init-bopis-notification` is missing `tmfc_component_id`.

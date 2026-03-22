@@ -1,7 +1,8 @@
 version: "0.1"
+domain: "ecommerce"
 domain_id: "ecommerce"
 domain_name: "Ecommerce Domain"
-description: "Ecommerce domain manages product catalog, store location search, and BOPIS inventory visibility for online customers. Integrates with HCL Commerce platform to provide product data and store inventory information.
+description: "Ecommerce domain manages product catalog, store location search, and BOPIS inventory visibility for online customers. Integrates with HCL Commerce platform to provide product data and store inventory information."
 
 owner:
   name: "Zhong"
@@ -27,7 +28,8 @@ components:
     dependencies:
       - interface_id: "ifc-inventory-sync-event"
         owner_domain: "inventory"
-        required_before: "phase-1"
+        required_before: "implementation"
+        component_id: "comp-inventory-management"
     nfr_slo:
       availability: "99.5%"
       latency_p95_ms: 200

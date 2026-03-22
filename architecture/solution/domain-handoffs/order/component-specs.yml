@@ -1,7 +1,8 @@
 version: "0.1"
+domain: "order"
 domain_id: "order"
 domain_name: "Order Domain"
-description: "Order domain manages BOPIS order lifecycle from placement through pickup completion. Handles order status tracking, customer queries, and order cancellations.
+description: "Order domain manages BOPIS order lifecycle from placement through pickup completion. Handles order status tracking, customer queries, and order cancellations."
 
 owner:
   name: "Zhong"
@@ -30,10 +31,12 @@ components:
     dependencies:
       - interface_id: "ifc-inventory-management-api"
         owner_domain: "inventory"
-        required_before: "phase-1"
+        required_before: "implementation"
+        component_id: "comp-inventory-management"
       - interface_id: "ifc-product-catalog-api"
         owner_domain: "ecommerce"
-        required_before: "phase-1"
+        required_before: "implementation"
+        component_id: "comp-ecommerce-catalog"
     nfr_slo:
       availability: "99.5%"
       latency_p95_ms: 200
