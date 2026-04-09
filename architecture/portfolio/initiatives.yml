@@ -5,6 +5,7 @@ initiatives:
     name: Buy Online, Pick Up In Store
     solution_repo_url: https://github.com/tincanlab/solution-bopis
     solution_entrypoint: SOLUTION.md
+    solution_git_ref: main
     status: active
     owner: Zhong
     metadata:

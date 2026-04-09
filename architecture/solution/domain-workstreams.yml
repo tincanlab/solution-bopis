@@ -4,149 +4,144 @@ initiative_id: "init-bopis"
 generated_at_utc: "2025-02-28T00:00:00Z"
 generated_by: "solution-architecture"
 workstreams:
-  - workstream_id: ws-init-bopis-ecommerce
-    workstream_uuid: 550e8400-e29b-41d4-a716-446655440001
-    initiative_id: init-bopis
-    domain_id: tmfc001
-    domain_name: Ecommerce Domain
-    oda_component_name: Product Catalog Management
-    name: BOPIS - Ecommerce Domain Engagement
-    workstream_entrypoint: DOMAIN.md
-    workstream_git_ref: main
-    workstream_repo_url: https://github.com/tincanlab/domain-ecommerce
-    workstream_path: null
-    domain_repo_url: https://github.com/tincanlab/domain-ecommerce
-    domain_entrypoint: DOMAIN.md
-    tmfc_component_id: TMFC001
-    handoff_ref: architecture/solution/domain-handoffs/ecommerce/component-specs.yml
-    status: active
-    owner: Engineering Team
-    metadata:
-      priority: high
-      milestone: 2025-q2
-      tmf_api: TMF620
-      tmf_api_name: Product Catalog / Order Management API
-      tmf_api_resources:
-        - Product
-        - ProductOffering
-        - ProductOfferingPrice
-        - Store
-      tmf_api_confidence: mcp_verified
-      notes: TMF620 is a multi-domain API serving both Ecommerce and Order domains with different resources
+   - workstream_id: ws-init-bopis-ecommerce
+     workstream_uuid: 550e8400-e29b-41d4-a716-446655440001
+     initiative_id: init-bopis
+     domain_id: tmfc001
+     domain_name: Ecommerce Domain
+     name: BOPIS - Ecommerce Domain Engagement
+     workstream_entrypoint: DOMAIN.md
+     workstream_git_ref: main
+     workstream_path: null
+     domain_repo_url: https://github.com/tincanlab/domain-ecommerce
+     domain_entrypoint: DOMAIN.md
+     handoff_ref: architecture/solution/domain-handoffs/ecommerce/component-specs.yml
+     status: active
+     owner: Engineering Team
+     metadata:
+       priority: high
+       milestone: 2025-q2
+       tmf_api: TMF620
+       tmf_api_name: Product Catalog / Order Management API
+       tmf_api_resources:
+         - Product
+         - ProductOffering
+         - ProductOfferingPrice
+         - Store
+       tmfc_component_id: TMFC001
+       oda_component_name: Product Catalog Management
+       tmf_api_confidence: mcp_verified
+       notes: TMF620 is a multi-domain API serving both Ecommerce and Order domains with different resources
 
-  - workstream_id: ws-init-bopis-inventory
-    workstream_uuid: 660e8400-e29b-41d4-a716-446655440002
-    initiative_id: init-bopis
-    domain_id: tmfc005
-    domain_name: Inventory Domain
-    oda_component_name: Product Inventory Management
-    name: BOPIS - Inventory Domain Engagement
-    workstream_entrypoint: DOMAIN.md
-    workstream_git_ref: main
-    workstream_repo_url: https://github.com/tincanlab/domain-inventory
-    workstream_path: null
-    domain_repo_url: https://github.com/tincanlab/domain-inventory
-    domain_entrypoint: DOMAIN.md
-    tmfc_component_id: TMFC005
-    handoff_ref: architecture/solution/domain-handoffs/inventory/component-specs.yml
-    status: active
-    owner: Engineering Team
-    metadata:
-      priority: high
-      milestone: 2025-q2
-      tmf_api: TMF637
-      tmf_api_name: Product Inventory Management API
-      tmf_api_resources:
-        - ProductInventory
-        - StockLevel
-      tmf_api_confidence: mcp_verified
-      notes: Inventory synchronization uses custom event contracts (not a TMF API resource)
+   - workstream_id: ws-init-bopis-inventory
+     workstream_uuid: 660e8400-e29b-41d4-a716-446655440002
+     initiative_id: init-bopis
+     domain_id: tmfc005
+     domain_name: Inventory Domain
+     name: BOPIS - Inventory Domain Engagement
+     workstream_entrypoint: DOMAIN.md
+     workstream_git_ref: main
+     workstream_path: null
+     domain_repo_url: https://github.com/tincanlab/domain-inventory
+     domain_entrypoint: DOMAIN.md
+     handoff_ref: architecture/solution/domain-handoffs/inventory/component-specs.yml
+     status: active
+     owner: Engineering Team
+     metadata:
+       priority: high
+       milestone: 2025-q2
+       tmf_api: TMF637
+       tmf_api_name: Product Inventory Management API
+       tmf_api_resources:
+         - ProductInventory
+         - StockLevel
+       tmfc_component_id: TMFC005
+       oda_component_name: Product Inventory Management
+       tmf_api_confidence: mcp_verified
+       notes: Inventory synchronization uses custom event contracts (not a TMF API resource)
 
-  - workstream_id: ws-init-bopis-order
-    workstream_uuid: 770e8400-e29b-41d4-a716-446655440003
-    initiative_id: init-bopis
-    domain_id: tmfc003
-    domain_name: Order Domain
-    oda_component_name: Order Management
-    name: BOPIS - Order Domain Engagement
-    workstream_entrypoint: DOMAIN.md
-    workstream_git_ref: main
-    workstream_repo_url: https://github.com/tincanlab/domain-order
-    workstream_path: null
-    domain_repo_url: https://github.com/tincanlab/domain-order
-    domain_entrypoint: DOMAIN.md
-    tmfc_component_id: TMFC003
-    handoff_ref: architecture/solution/domain-handoffs/order/component-specs.yml
-    status: active
-    owner: Engineering Team
-    metadata:
-      priority: high
-      milestone: 2025-q2
-      tmf_api: TMF620
-      tmf_api_name: Product Catalog / Order Management API
-      tmf_api_resources:
-        - CustomerOrder
-        - CustomerProductOrder
-        - ProductOrderItem
-      tmf_api_confidence: mcp_verified
-      notes: TMF620 is a multi-domain API serving both Ecommerce and Order domains with different resources
+   - workstream_id: ws-init-bopis-order
+     workstream_uuid: 770e8400-e29b-41d4-a716-446655440003
+     initiative_id: init-bopis
+     domain_id: tmfc003
+     domain_name: Order Domain
+     name: BOPIS - Order Domain Engagement
+     workstream_entrypoint: DOMAIN.md
+     workstream_git_ref: main
+     workstream_path: null
+     domain_repo_url: https://github.com/tincanlab/domain-order
+     domain_entrypoint: DOMAIN.md
+     handoff_ref: architecture/solution/domain-handoffs/order/component-specs.yml
+     status: active
+     owner: Engineering Team
+     metadata:
+       priority: high
+       milestone: 2025-q2
+       tmf_api: TMF622
+       tmf_api_name: Order Management API
+       tmf_api_resources:
+         - CustomerOrder
+         - CustomerProductOrder
+         - ProductOrderItem
+       tmfc_component_id: TMFC003
+       oda_component_name: Order Management
+       tmf_api_confidence: mcp_verified
+       notes: TMF620 is a multi-domain API serving both Ecommerce and Order domains with different resources
 
-  - workstream_id: ws-init-bopis-party-role
-    workstream_uuid: 880e8400-e29b-41d4-a716-446655440004
-    initiative_id: init-bopis
-    domain_id: tmfc028
-    domain_name: Party Role Management Domain
-    oda_component_name: Party Role Management
-    name: BOPIS - Party Role Management Domain Engagement
-    workstream_entrypoint: DOMAIN.md
-    workstream_git_ref: main
-    workstream_repo_url: https://github.com/tincanlab/domain-party-role
-    workstream_path: null
-    domain_repo_url: https://github.com/tincanlab/domain-party-role
-    domain_entrypoint: DOMAIN.md
-    tmfc_component_id: TMFC028
-    handoff_ref: architecture/solution/domain-handoffs/party-role/component-specs.yml
-    status: active
-    owner: Engineering Team
-    metadata:
-      priority: high
-      milestone: 2025-q2
-      tmf_api: TMF669
-      tmf_api_name: Party Role Management API
-      tmf_api_resources:
-        - PartyRole
-        - StoreAssociate
-        - GeographicLocation
-      tmf_api_confidence: mcp_verified
-      notes: Previously referred to as "Fulfillment" domain in earlier artifacts. Pickup verification uses custom QR code contracts (not a TMF API resource)
+   - workstream_id: ws-init-bopis-party-role
+     workstream_uuid: 880e8400-e29b-41d4-a716-446655440004
+     initiative_id: init-bopis
+     domain_id: tmfc028
+     domain_name: Party Role Management Domain
+     name: BOPIS - Party Role Management Domain Engagement
+     workstream_entrypoint: DOMAIN.md
+     workstream_git_ref: main
+     workstream_path: null
+     domain_repo_url: https://github.com/tincanlab/domain-party-role
+     domain_entrypoint: DOMAIN.md
+     handoff_ref: architecture/solution/domain-handoffs/party-role/component-specs.yml
+     status: active
+     owner: Engineering Team
+     metadata:
+       priority: high
+       milestone: 2025-q2
+       tmf_api: TMF669
+       tmf_api_name: Party Role Management API
+       tmf_api_resources:
+         - PartyRole
+         - StoreAssociate
+         - GeographicLocation
+       tmfc_component_id: TMFC028
+       oda_component_name: Party Role Management
+       tmf_api_confidence: mcp_verified
+       notes: Previously referred to as "Fulfillment" domain in earlier artifacts. Pickup verification uses custom QR code contracts (not a TMF API resource)
 
-  - workstream_id: ws-init-bopis-notification
-    workstream_uuid: 990e8400-e29b-41d4-a716-446655440005
-    initiative_id: init-bopis
-    domain_id: notification
-    domain_name: Notification Domain
-    oda_component_name: Notification Service
-    name: BOPIS - Notification Domain Engagement
-    workstream_entrypoint: DOMAIN.md
-    workstream_git_ref: main
-    workstream_repo_url: https://github.com/tincanlab/domain-notification
-    workstream_path: null
-    domain_repo_url: https://github.com/tincanlab/domain-notification
-    domain_entrypoint: DOMAIN.md
-    handoff_ref: architecture/solution/domain-handoffs/notification/component-specs.yml
-    status: active
-    owner: Engineering Team
-    metadata:
-      priority: medium
-      milestone: 2025-q2
-      tmf_api: null
-      tmf_api_name: Custom Notification Service
-      tmf_api_resources:
-        - EmailTemplate
-        - SMSMessage
-        - NotificationTemplate
-      tmf_api_confidence: local_knowledge
-      notes: Custom implementation, not a TMF ODA component. Email/SMS providers vary by region and are not standardized in TMF Open APIs.
+   - workstream_id: ws-init-bopis-notification
+     workstream_uuid: 990e8400-e29b-41d4-a716-446655440005
+     initiative_id: init-bopis
+     domain_id: notification
+     domain_name: Notification Domain
+     name: BOPIS - Notification Domain Engagement
+     workstream_entrypoint: DOMAIN.md
+     workstream_git_ref: main
+     workstream_path: null
+     domain_repo_url: https://github.com/tincanlab/domain-notification
+     domain_entrypoint: DOMAIN.md
+     handoff_ref: architecture/solution/domain-handoffs/notification/component-specs.yml
+     status: active
+     owner: Engineering Team
+     metadata:
+       priority: medium
+       milestone: 2025-q2
+       tmf_api: null
+       tmf_api_name: Custom Notification Service
+       tmf_api_resources:
+         - EmailTemplate
+         - SMSMessage
+         - NotificationTemplate
+       oda_component_name: Notification Service
+       tmf_api_confidence: local_knowledge
+       notes: Custom implementation, not a TMF ODA component. Email/SMS providers vary by region and are not standardized in TMF Open APIs.
 
 execution:
   state: not_started
