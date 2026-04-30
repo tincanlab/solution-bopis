@@ -392,16 +392,18 @@ graph TB
 |------|------------------|---------------|-----------------|------------|-------------------|
 | Product Catalog Management | TMFC001 | ProductCatalogManagement | CoreCommerce | mcp_verified | verified |
 | Product Inventory Management | TMFC005 | ProductInventory | CoreCommerce | mcp_verified | verified |
-| Order Management | TMFC003 | OrderManagement | Fulfillment | mcp_verified | verified |
-| Party Role Management | TMFC006 | PartyRoleManagement | Fulfillment | local_knowledge | not_mapped |
+| Product Order Delivery Orchestration And Management | TMFC003 | ProductOrderDeliveryOrchestrationAndManagement | CoreCommerce | mcp_verified | verified |
+| Party Management | TMFC028 | PartyManagement | PartyManagement | mcp_verified | verified |
 
 ### Open APIs
 
 | ID | Version | API Name | Confidence | Validation Status |
 |----|---------|----------|------------|-------------------|
-| TMF620 | - | Product, ProductOffering | mcp_verified | verified |
-| TMF637 | - | Product Inventory | mcp_verified | verified |
-| TMF629 | - | Party Role | mcp_verified | verified |
+| TMF620 | 5.0.0 | Product Catalog Management | mcp_verified | verified |
+| TMF622 | 5.0.0 | Product Ordering | mcp_verified | verified |
+| TMF637 | 5.0.0 | Product Inventory | mcp_verified | verified |
+| TMF687 | 4.0.0 | Stock Management | mcp_verified | applicable |
+| TMF669 | 5.0.0 | Party Role Management | mcp_verified | verified |
 
 ### SID Entities
 
@@ -449,14 +451,16 @@ graph TB
     subgraph "ODA Components"
         ODA1[Product Catalog Management<br/>TMFC001]
         ODA2[Product Inventory Management<br/>TMFC005]
-        ODA3[Order Management<br/>TMFC003]
-        ODA4[Party Role Management<br/>TMFC006]
+        ODA3[Product Order Delivery<br/>TMFC003]
+        ODA4[Party Management<br/>TMFC028]
     end
 
     subgraph "Open APIs"
-        API1[TMF620<br/>Product, ProductOffering]
-        API2[TMF637<br/>Product Inventory]
-        API3[TMF629<br/>Party Role]
+        API1[TMF620<br/>Product Catalog]
+        API2[TMF622<br/>Product Ordering]
+        API3[TMF637<br/>Product Inventory]
+        API4[TMF669<br/>Party Role]
+        API5[TMF687<br/>Stock Management]
     end
 
     subgraph "SID Entities"
@@ -472,6 +476,7 @@ graph TB
         SD2[Inventory]
         SD3[Order]
         SD4[Party Role]
+        SD5[Notification]
     end
 
     ODA1 --> SD1
@@ -480,9 +485,9 @@ graph TB
     ODA4 --> SD4
 
     API1 --> SD1
-    API1 --> SD3
-    API2 --> SD2
-    API3 --> SD4
+    API2 --> SD3
+    API3 --> SD2
+    API4 --> SD4
 
     SID4 --> SD1
     SID5 --> SD2

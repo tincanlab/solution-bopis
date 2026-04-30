@@ -1,0 +1,426 @@
+version: "0.1"
+initiative_id: "init-bopis"
+initiative_name: "Buy Online, Pick Up In Store"
+governance_signal:
+  workspace_id: ""
+  cascade_layer: requirements
+  cascade_recommendation: remediation_required
+  remediation_status: pending
+  note: "Core use cases elaborated but traceability to requirements incomplete. Open questions from stakeholders (stakeholder-q-002 through stakeholder-q-008) block full readiness."
+use_cases:
+  - uc-001:
+      revision: 1
+      status: active
+      source:
+        req_ids:
+          - "req-bopis-001"  # Customer can browse products online
+          - "req-bopis-002"  # Customer can view store inventory
+      actor: Customer
+      trigger: "Customer visits store frontend"
+      preconditions:
+        - "Customer is authenticated"
+        - "HCL Commerce platform is accessible"
+        - "Store has BOPIS capability enabled"
+      main_flow:
+        - step: "Customer opens store frontend"
+        - step: "System displays product catalog from HCL Commerce"
+        - step: "Customer searches/browses products"
+        - step: "System displays product details with pricing"
+      alternate_flows:
+        - flow: "Product not available in store"
+          steps:
+            - "Customer selects product"
+            - "System shows 'not available for pickup' message"
+            - "Customer selects different store or product"
+        - flow: "HCL Commerce unavailable"
+          steps:
+            - "Customer opens store frontend"
+            - "System displays cached catalog or error message"
+            - "Customer retries later or contacts support"
+      inputs:
+        - name: "search_query"
+          type: "string"
+          optional: true
+        - name: "store_id"
+          type: "string"
+          optional: true
+      outputs:
+        - name: "product_list"
+          type: "ProductOrder[]"
+        - name: "inventory_availability"
+          type: "InventoryLevel"
+      nfr_touchpoints:
+        - "nfr-availability: Store frontend must be available 99.5% during store hours"
+        - "nfr-checkout-latency: Product browsing < 2 minutes total"
+        - "nfr-security: Product data encrypted in transit (TLS 1.3)"
+      acceptance_criteria:
+        - "Product catalog displays correctly from HCL Commerce"
+        - "Inventory availability shows for each product/store combination"
+        - "Search and filtering work correctly"
+
+  - uc-002:
+      revision: 1
+      status: active
+      source:
+        req_ids:
+          - "req-bopis-003"  # Customer can check store inventory
+          - "req-bopis-004"  # Inventory syncs within 30 seconds
+      actor: Customer
+      trigger: "Customer selects product and store"
+      preconditions:
+        - "Product is selected"
+        - "Store is selected"
+        - "Inventory domain is accessible"
+      main_flow:
+        - step: "Customer selects product and store"
+        - step: "System queries inventory via ifc-product-catalog-api"
+        - step: "Ecommerce domain calls Inventory domain (ifc-inventory-management-api)"
+        - step: "Inventory domain returns available quantity"
+        - step: "System displays inventory availability to customer"
+      alternate_flows:
+        - flow: "Inventory insufficient"
+          steps:
+            - "Inventory check returns quantity < requested"
+            - "System displays 'insufficient stock' message"
+            - "Customer selects different store or reduces quantity"
+        - flow: "Inventory sync delay"
+          steps:
+            - "Inventory was reserved but event not yet synced"
+            - "System displays availability based on cached data"
+            - "Customer adds to cart, reservation succeeds or fails at checkout"
+      inputs:
+        - name: "sku"
+          type: "string"
+          required: true
+        - name: "store_id"
+          type: "string"
+          required: true
+        - name: "quantity"
+          type: "integer"
+          required: true
+          default: 1
+      outputs:
+        - name: "available_quantity"
+          type: "integer"
+        - name: "reserved_quantity"
+          type: "integer"
+      nfr_touchpoints:
+        - "nfr-inventory-sync: Inventory must reflect within 30 seconds of reservation"
+        - "nfr-availability: Inventory API 99.9% availability"
+        - "nfr-throughput: >= 100 orders/minute per store cluster"
+      acceptance_criteria:
+        - "Real-time inventory visibility accurate within 30 seconds"
+        - "Atomic reservations prevent overselling"
+        - "Inventory sync event (ifc-inventory-sync-event) emitted on reservation/release"
+
+  - uc-003:
+      revision: 1
+      status: active
+      source:
+        req_ids:
+          - "req-bopis-005"  # Customer can place BOPIS order
+          - "req-bopis-006"  # Checkout completes within 2 minutes
+      actor: Customer
+      trigger: "Customer clicks 'Place BOPIS Order'"
+      preconditions:
+        - "Customer is authenticated"
+        - "Product and store selected"
+        - "Inventory available for reservation"
+        - "HCL Commerce and Order domain accessible"
+      main_flow:
+        - step: "Customer clicks 'Place BOPIS Order'"
+        - step: "Order domain creates order (ifc-order-management-api)"
+        - step: "Order domain atomically reserves inventory (ifc-inventory-management-api)"
+        - step: "Inventory domain returns reservation confirmation"
+        - step: "Order domain confirms order creation"
+        - step: "System displays order confirmation with QR code"
+        - step: "Notification domain sends confirmation email (ifc-notification-api)"
+        - step: "Order status event emitted (RECEIVED)"
+      alternate_flows:
+        - flow: "Inventory reservation fails"
+          steps:
+            - "Order domain attempts inventory reservation"
+            - "Inventory domain returns insufficient stock error"
+            - "Order domain cancels order creation"
+            - "System displays 'inventory no longer available' message"
+            - "Customer selects different store or product"
+        - flow: "HCL Commerce integration fails"
+          steps:
+            - "Order created in Order domain"
+            - "HCL Commerce order creation fails"
+            - "Order domain cancels order, releases inventory"
+            - "System displays error, suggests retry"
+        - flow: "Customer cancels order"
+          steps:
+            - "Customer clicks 'Cancel Order'"
+            - "Order domain updates status to CANCELLED"
+            - "Inventory domain releases reservation"
+            - "Notification sent to customer"
+      inputs:
+        - name: "sku"
+          type: "string"
+          required: true
+        - name: "store_id"
+          type: "string"
+          required: true
+        - name: "quantity"
+          type: "integer"
+          required: true
+        - name: "customer_id"
+          type: "string"
+          required: true
+      outputs:
+        - name: "order_id"
+          type: "string"
+        - name: "qr_code"
+          type: "string"
+          description: "QR code containing order_id and cryptographic signature"
+        - name: "total_amount"
+          type: "decimal"
+      nfr_touchpoints:
+        - "nfr-checkout-latency: Checkout flow completes within 2 minutes"
+        - "nfr-availability: Order API 99.5% availability"
+        - "nfr-security: Customer data encrypted (AES-256 at rest, TLS 1.3 in transit)"
+        - "nfr-recovery-time: RTO < 4 hours, RPO < 1 hour for order data"
+      acceptance_criteria:
+        - "Order created with status RECEIVED"
+        - "Inventory atomically reserved (no overselling)"
+        - "QR code generated with cryptographic signature"
+        - "Order confirmation notification sent within 2 minutes"
+
+  - uc-004:
+      revision: 1
+      status: active
+      source:
+        req_ids:
+          - "req-bopis-007"  # Store associate can view pending orders
+          - "req-bopis-008"  # Associate UI loads within 3 seconds
+      actor: Store Associate
+      trigger: "Store associate logs into tablet app"
+      preconditions:
+        - "Store associate is authenticated"
+        - "Party Role domain is accessible"
+        - "Store has pending BOPIS orders"
+      main_flow:
+        - step: "Store associate logs into tablet app"
+        - step: "Party Role domain queries pending orders (ifc-party-role-api)"
+        - step: "Order domain returns pending orders via ifc-order-status-event subscription"
+        - step: "System displays pending order list"
+        - step: "Associate selects order to start picking"
+        - step: "Party Role domain updates order status to PICKING (ifc-pickup-api)"
+        - step: "Order status event emitted (PICKING)"
+      alternate_flows:
+        - flow: "No pending orders"
+          steps:
+            - "Associate logs in"
+            - "System displays 'no pending orders' message"
+            - "Associate waits or performs other tasks"
+        - flow: "Party Role API unavailable"
+          steps:
+            - "Associate logs in"
+            - "Party Role API returns error"
+            - "System displays error, suggests retry"
+            - "Associate retries or contacts support"
+      inputs:
+        - name: "store_id"
+          type: "string"
+          required: true
+        - name: "associate_id"
+          type: "string"
+          required: true
+      outputs:
+        - name: "pending_orders"
+          type: "CustomerProductOrder[]"
+        - name: "order_locations"
+          type: "ProductLocation[]"
+          description: "Product locations within store for picking"
+      nfr_touchpoints:
+        - "nfr-associate-ui-latency: Associate UI loads within 3 seconds"
+        - "nfr-availability: Party Role API 99.5% availability"
+        - "nfr-throughput: >= 100 orders/minute per store cluster"
+      acceptance_criteria:
+        - "Pending orders display correctly in associate UI"
+        - "Order status updates to PICKING"
+        - "Product locations shown for efficient picking"
+
+  - uc-005:
+      revision: 1
+      status: active
+      source:
+        req_ids:
+          - "req-bopis-009"  # Associate marks order ready
+          - "req-bopis-010"  # Notification sent within 2 minutes
+      actor: Store Associate
+      trigger: "Store associate marks order as ready for pickup"
+      preconditions:
+        - "Order status is PICKING"
+        - "Order is picked and ready"
+        - "Party Role domain is accessible"
+      main_flow:
+        - step: "Associate verifies order picked"
+        - step: "Associate clicks 'Mark Ready' in tablet app"
+        - step: "Party Role domain updates status to READY (ifc-pickup-api)"
+        - step: "Order status event emitted (READY)"
+        - step: "Notification domain sends pickup ready notification (ifc-notification-api)"
+        - step: "Customer receives SMS/email notification within 2 minutes"
+      alternate_flows:
+        - flow: "Order not found or invalid status"
+          steps:
+            - "Associate attempts to mark ready"
+            - "Party Role API returns error (invalid status transition)"
+            - "System displays error message"
+            - "Associate checks order status and retries"
+      inputs:
+        - name: "order_id"
+          type: "string"
+          required: true
+        - name: "associate_id"
+          type: "string"
+          required: true
+      outputs:
+        - name: "status"
+          type: "string"
+          value: "READY"
+      nfr_touchpoints:
+        - "nfr-notification-latency: Notification sent within 2 minutes of order readiness"
+        - "nfr-availability: Party Role API 99.5% availability"
+      acceptance_criteria:
+        - "Order status updated to READY"
+        - "Pickup ready notification sent within 2 minutes"
+        - "Customer receives notification via email/SMS"
+
+  - uc-006:
+      revision: 1
+      status: active
+      source:
+        req_ids:
+          - "req-bopis-011"  # Customer verifies via QR code only
+          - "req-bopis-012"  # QR code verification secure
+      actor: Customer + Store Associate
+      trigger: "Customer presents QR code for pickup"
+      preconditions:
+        - "Order status is READY"
+        - "Customer has QR code"
+        - "Store associate has tablet with scanner"
+        - "Party Role domain is accessible"
+      main_flow:
+        - step: "Customer arrives at store with QR code"
+        - step: "Associate scans QR code using tablet app"
+        - step: "Party Role domain verifies QR code (ifc-pickup-api)"
+        - step: "System validates order and displays order details"
+        - step: "Associate clicks 'Complete Pickup'"
+        - step: "Party Role domain updates status to PICKED_UP (ifc-pickup-api)"
+        - step: "Order status event emitted (PICKED_UP)"
+        - step: "Pickup event emitted (ifc-pickup-event)"
+        - step: "Notification domain sends pickup completion notification"
+        - step: "Customer receives completion notification"
+      alternate_flows:
+        - flow: "Invalid QR code"
+          steps:
+            - "Associate scans QR code"
+            - "Party Role domain returns 'invalid QR code' error"
+            - "System displays error, requests customer to display QR code again"
+            - "Customer shows QR code again or provides order number"
+        - flow: "Order not ready"
+          steps:
+            - "Associate scans QR code"
+            - "System displays 'order not ready' message"
+            - "Customer waits or associate checks status"
+        - flow: "Customer lost device"
+          steps:
+            - "Customer arrives without QR code"
+            - "Associate looks up order by customer phone/email"
+            - "Associate verifies customer identity verbally"
+            - "Pickup proceeds manually"
+      inputs:
+        - name: "qr_code"
+          type: "string"
+          required: true
+          description: "QR code containing order_id and cryptographic signature"
+        - name: "associate_id"
+          type: "string"
+          required: true
+      outputs:
+        - name: "status"
+          type: "string"
+          value: "PICKED_UP"
+        - name: "pickup_confirmation"
+          type: "PickupConfirmation"
+      nfr_touchpoints:
+        - "nfr-availability: Party Role API 99.5% availability"
+        - "nfr-security: QR code cryptographically signed, non-forgeable"
+        - "nfr-associate-ui-latency: Associate UI responds within 3 seconds"
+      acceptance_criteria:
+        - "QR code verified successfully"
+        - "Order status updated to PICKED_UP"
+        - "Pickup completion notification sent to customer"
+        - "Secure verification prevents unauthorized pickup"
+
+  - uc-007:
+      revision: 1
+      status: active
+      source:
+        req_ids:
+          - "req-bopis-013"  # Customer can cancel order
+      actor: Customer
+      trigger: "Customer clicks 'Cancel Order'"
+      preconditions:
+        - "Order status is RECEIVED or PICKING"
+        - "Customer is authenticated"
+        - "Order domain is accessible"
+      main_flow:
+        - step: "Customer views order details"
+        - step: "Customer clicks 'Cancel Order'"
+        - step: "System confirms cancellation request"
+        - step: "Order domain updates status to CANCELLED (ifc-order-management-api)"
+        - step: "Inventory domain releases reservation (ifc-inventory-management-api)"
+        - step: "Order status event emitted (CANCELLED)"
+        - step: "Notification domain sends cancellation notification"
+        - step: "Customer receives cancellation confirmation"
+      alternate_flows:
+        - flow: "Order already PICKED_UP"
+          steps:
+            - "Customer attempts to cancel"
+            - "System displays 'order already picked up, cannot cancel' message"
+            - "Customer contacts store for assistance"
+        - flow: "Cancellation fails"
+          steps:
+            - "Customer clicks 'Cancel Order'"
+            - "Order domain returns error"
+            - "System displays error, suggests retry"
+            - "Customer retries or contacts support"
+      inputs:
+        - name: "order_id"
+          type: "string"
+          required: true
+        - name: "customer_id"
+          type: "string"
+          required: true
+      outputs:
+        - name: "status"
+          type: "string"
+          value: "CANCELLED"
+      nfr_touchpoints:
+        - "nfr-availability: Order API 99.5% availability"
+        - "nfr-recovery-time: Inventory released within SLA after cancellation"
+      acceptance_criteria:
+        - "Order status updated to CANCELLED"
+        - "Inventory reservation released"
+        - "Cancellation notification sent to customer"
+
+open_questions:
+  - id: "uc-q-001"
+    question: "What is the exact HCL Commerce API endpoint for order creation?"
+    status: "open"
+    use_case_id: "uc-003"
+    stakeholder_id: "stakeholder-004"
+  - id: "uc-q-002"
+    question: "What is the inventory management system API for real-time sync?"
+    status: "open"
+    use_case_id: "uc-002"
+    stakeholder_id: "stakeholder-006"
+  - id: "uc-q-003"
+    question: "What are the SMS/email provider APIs and rate limits?"
+    status: "open"
+    use_case_id: "uc-003, uc-005, uc-006"
+    stakeholder_id: "stakeholder-008"

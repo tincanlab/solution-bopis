@@ -2,7 +2,7 @@ version: "0.1"
 domain: "party-role"
 domain_id: "party-role"
 domain_name: "Party Role Management Domain"
-description: "Party Role Management domain manages store associate interface for order fulfillment and pickup processing. Handles QR code verification and order completion. Aligns with TMF ODA component TMF629 Party Role Management."
+description: "Party Role Management domain manages store associate interface for order fulfillment and pickup processing. Handles QR code verification and order completion. Aligns with TMF ODA component TMFC028 Party Management and TMF669 Party Role Management API."
 
 owner:
   name: "Zhong"
@@ -106,4 +106,4 @@ external_integrations:
 
 open_questions: []
 
-notes: "Party Role Management domain is store-associate facing and requires intuitive UI and low latency for pickup operations. QR code verification provides secure and fast order completion. Aligns with TMF ODA component TMF629 Party Role Management."
+notes: "Party Role Management domain is store-associate facing and requires intuitive UI and low latency for pickup operations. QR code verification provides secure and fast order completion. Aligns with TMF ODA component TMFC028 Party Management and TMF669 Party Role Management API."

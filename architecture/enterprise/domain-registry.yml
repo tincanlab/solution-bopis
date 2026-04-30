@@ -4,7 +4,7 @@
 version: "1.0"
 enterprise_id: ent-tincanlab
 domains:
-   - domain_id: tmfc001
+  - domain_id: ecommerce
     name: Ecommerce Domain
     owner: domain-arch-ecommerce
     status: active
@@ -34,7 +34,7 @@ domains:
       oda_component_name: Product Catalog Management
       tmfc_component_id: TMFC001
 
-  - domain_id: tmfc005
+  - domain_id: inventory
     name: Inventory Domain
     owner: domain-arch-inventory
     status: active
@@ -64,7 +64,7 @@ domains:
       oda_component_name: Product Inventory Management
       tmfc_component_id: TMFC005
 
-  - domain_id: tmfc003
+  - domain_id: order
     name: Order Domain
     owner: domain-arch-order
     status: active
@@ -94,7 +94,7 @@ domains:
       oda_component_name: Product Order Delivery Orchestration And Management
       tmfc_component_id: TMFC003
 
-  - domain_id: tmfc028
+  - domain_id: party-role
     name: Party Role Management Domain
     owner: domain-arch-party-role
     status: active

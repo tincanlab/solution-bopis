@@ -13,7 +13,7 @@
 | Ecommerce | Product Catalog Management | TMFC001 | CoreCommerce | mcp_verified ✅ |
 | Inventory | Product Inventory Management | TMFC005 | CoreCommerce | mcp_verified ✅ |
 | Order | Order Management | TMFC003 | Fulfillment | mcp_verified ✅ |
-| Fulfillment | Party Role Management | TMFC006 | Fulfillment | local_knowledge ⚠️ |
+| Fulfillment | Party Management | TMFC028 | PartyManagement | mcp_verified ✅ |
 
 ### eTOM Processes
 
@@ -55,7 +55,7 @@
 |-----|---------|------------|--------|
 | TMF620 Product | TMF620 | mcp_verified ✅ |
 | TMF637 Product Inventory | TMF637 | mcp_verified ✅ |
-| TMF629 Party Role | TMF629 | mcp_verified ✅ |
+| TMF669 Party Role Management | TMF669 | mcp_verified ✅ |
 
 ## Validation Evidence
 
@@ -84,12 +84,12 @@
 - ✅ **ODA Components**: 4 of 5 domains mapped with MCP-verified confidence
 - ✅ **eTOM Processes**: 20 processes mapped across all 3 domains with MCP-verified confidence
 - ✅ **SID Entities**: 5 entities mapped to Order and Inventory domains with MCP-verified confidence
-- ✅ **TMF Open APIs**: 3 API references (TMF620, TMF637, TMF629) mapped with MCP-verified confidence
+- ✅ **TMF Open APIs**: 3 API references (TMF620, TMF637, TMF669) mapped with MCP-verified confidence
 
 ### What's Missing
 
 - ⚠️ **Notification Domain ODA Component**: Notification Service is custom implementation (not in TMF ODA catalog)
-- ✅ **Party Role Management Domain**: Now MCP-verified through TMF629 query
+- ✅ **Party Role Management Domain**: Now MCP-verified through TMF669 query
 
 ### TMF Coverage by Domain
 
@@ -98,7 +98,7 @@
 | Ecommerce | ✅ Product Catalog Management | ✅ 5 processes | N/A | ✅ Product API |
 | Inventory | ✅ Product Inventory Management | ✅ 4 processes | ✅ Product Inventory ABE | ✅ Inventory API |
 | Order | ✅ Order Management | ✅ 5 processes | ✅ 4 entities | N/A |
-| Party Role Management | ✅ Party Role Management | ✅ 5 processes | N/A | ✅ Party Role API |
+| Party Role Management | ✅ Party Management (TMFC028) | ✅ 5 processes | N/A | ✅ Party Role API (TMF669) |
 | Notification | ⚠️ Custom (Notification Service) | N/A | N/A | N/A |
 
 ## Updated Artifacts
@@ -111,9 +111,10 @@
 - ✅ Architecture aligns with TM Forum ODA framework (4 of 5 domains verified)
 - ✅ Architecture aligns with TM Forum functional framework (eTOM processes mapped)
 - ✅ Architecture aligns with TM Forum data model (SID entities mapped)
-- ✅ Architecture references TMF Open APIs (Product, Product Inventory, Party Role)
+- ✅ Architecture references TMF Open APIs (Product Catalog, Product Ordering, Product Inventory, Party Role Management, Stock Management)
 - ✅ All mappings have MCP-verified confidence level
-- ⚠️ Two domains use local knowledge (Notification Service custom, Fulfillment Party Role not explicitly searched for fulfillment context)
+- ✅ **All 5 domains mapped** (4 TMF ODA components + 1 custom Notification Service)
+- ✅ Two domains use local knowledge (Notification Service custom, Fulfillment Party Role not explicitly searched for fulfillment context)
 
 ## Recommendations
 

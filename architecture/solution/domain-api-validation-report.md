@@ -85,15 +85,15 @@ Domain names and TMF API mappings have been validated against existing TMF-MCP v
 |--------|--------|-----------------|
 | Domain Key | `party-role` | ✅ Consistent |
 | Domain Name | Party Role Management Domain | ✅ Consistent |
-| ODA Component | Party Role Management | ✅ TMFC006 |
+| ODA Component | Party Role Management | ✅ TMFC028 |
 | ODA Functional Block | Fulfillment | ✅ Verified |
-| TMF API | TMF629 (PartyRole) | ✅ mcp_verified |
+| TMF API | TMF669 (PartyRole) | ✅ mcp_verified |
 | Confidence Level | mcp_verified | ✅ |
 
 **TMF Evidence** (from tmf-validation-summary.md):
 - ODA Component: Party Management (TMFC028) - Fulfillment
 - eTOM Processes: Manage Resource Order Fulfillment (1.5.5.8), Manage Customer Order Fulfillment (1.3.3.12), Manage Fulfillment (1.7.10.6), Deliver Customer Order Carry Through (1.3.19.3.2), Accept Business Partner Order (1.6.8.4.2)
-- TMF Open API: TMF629 Party Role
+- TMF Open API: TMF669 Party Role
 
 **Validation Status**: ✅ **VALIDATED**
 
@@ -129,7 +129,7 @@ Domain names and TMF API mappings have been validated against existing TMF-MCP v
 | domain-ecommerce | tincanlab/domain-ecommerce | ecommerce | Product Catalog Management (TMFC001) | TMF620 | ✅ Valid |
 | domain-inventory | tincanlab/domain-inventory | inventory | Product Inventory Management (TMFC005) | TMF637 | ✅ Valid |
 | domain-order | tincanlab/domain-order | order | Order Management (TMFC003) | TMF620 | ✅ Valid |
-| domain-party-role | tincanlab/domain-party-role | party-role | Party Management (TMFC028) | TMF629 | ✅ Valid |
+| domain-party-role | tincanlab/domain-party-role | party-role | Party Management (TMFC028) | TMF669 | ✅ Valid |
 | domain-notification | tincanlab/domain-notification | notification | Custom (Notification Service) | None | ⚠️ Custom |
 
 **Validation Result**: ✅ **All 5 domain repos are correctly mapped**
@@ -157,7 +157,7 @@ Domain names and TMF API mappings have been validated against existing TMF-MCP v
 | ecommerce | Product, ProductOffering | TMF620 | mcp_verified ✅ |
 | inventory | ProductInventory | TMF637 | mcp_verified ✅ |
 | order | CustomerOrder | TMF620 | mcp_verified ✅ |
-| party-role | PartyRole | TMF629 | mcp_verified ✅ |
+| party-role | PartyRole | TMF669 | mcp_verified ✅ |
 | notification | Custom | N/A | local_knowledge ⚠️ |
 
 **Coverage**: 4 of 5 domains (80%) map to TMF Open APIs

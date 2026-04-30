@@ -12,7 +12,11 @@ entrypoints:
   cascade_state: .openarchitect/cascade-state.yml
 domains:
   - domain_key: ecommerce
-    oda_component: Product Catalog Management
+    metadata:
+      oda_component: Product Catalog Management
+      tmf_apis:
+        - api_id: TMF620
+          implementation_repo_url: https://github.com/tincanlab/domain-ecommerce
     domain_repo:
       repo_url: https://github.com/tincanlab/domain-ecommerce
       repo_key: domain-ecommerce
@@ -20,11 +24,12 @@ domains:
         domain_md: DOMAIN.md
         agents_md: AGENTS.md
         cascade_state: .openarchitect/cascade-state.yml
-    tmf_apis:
-      - api_id: TMF620
-        implementation_repo_url: https://github.com/tincanlab/domain-ecommerce
   - domain_key: inventory
-    oda_component: Product Inventory Management
+    metadata:
+      oda_component: Product Inventory Management
+      tmf_apis:
+        - api_id: TMF637
+          implementation_repo_url: https://github.com/tincanlab/domain-inventory
     domain_repo:
       repo_url: https://github.com/tincanlab/domain-inventory
       repo_key: domain-inventory
@@ -32,11 +37,12 @@ domains:
         domain_md: DOMAIN.md
         agents_md: AGENTS.md
         cascade_state: .openarchitect/cascade-state.yml
-    tmf_apis:
-      - api_id: TMF637
-        implementation_repo_url: https://github.com/tincanlab/domain-inventory
   - domain_key: order
-    oda_component: Order Management
+    metadata:
+      oda_component: Order Management
+      tmf_apis:
+        - api_id: TMF622
+          implementation_repo_url: https://github.com/tincanlab/domain-order
     domain_repo:
       repo_url: https://github.com/tincanlab/domain-order
       repo_key: domain-order
@@ -44,11 +50,12 @@ domains:
         domain_md: DOMAIN.md
         agents_md: AGENTS.md
         cascade_state: .openarchitect/cascade-state.yml
-    tmf_apis:
-      - api_id: TMF622
-        implementation_repo_url: https://github.com/tincanlab/domain-order
   - domain_key: party-role
-    oda_component: Party Role Management
+    metadata:
+      oda_component: Party Role Management
+      tmf_apis:
+        - api_id: TMF669
+          implementation_repo_url: https://github.com/tincanlab/domain-party-role
     domain_repo:
       repo_url: https://github.com/tincanlab/domain-party-role
       repo_key: domain-party-role
@@ -56,11 +63,12 @@ domains:
         domain_md: DOMAIN.md
         agents_md: AGENTS.md
         cascade_state: .openarchitect/cascade-state.yml
-    tmf_apis:
-      - api_id: TMF669
-        implementation_repo_url: https://github.com/tincanlab/domain-party-role
   - domain_key: notification
-    oda_component: Notification Service
+    metadata:
+      oda_component: Notification Service
+      tmf_apis:
+        - api_id: CUSTOM-NOTIFICATION
+          implementation_repo_url: https://github.com/tincanlab/domain-notification
     domain_repo:
       repo_url: https://github.com/tincanlab/domain-notification
       repo_key: domain-notification
@@ -68,9 +76,6 @@ domains:
         domain_md: DOMAIN.md
         agents_md: AGENTS.md
         cascade_state: .openarchitect/cascade-state.yml
-    tmf_apis:
-      - api_id: CUSTOM-NOTIFICATION
-        implementation_repo_url: https://github.com/tincanlab/domain-notification
 repos:
   - repo_key: solution_design
     repo_url: https://github.com/tincanlab/solution-bopis
